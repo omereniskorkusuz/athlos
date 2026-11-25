@@ -52,12 +52,12 @@ struct TimerView: View {
                 }
                 .frame(maxWidth: .infinity)
                 // The Today panel needs room; in a narrow window the timer gets the whole width.
-                if geo.size.width >= 820 {
+                if geo.size.width >= 780 {
                     TodayPanel()
                         .transition(.move(edge: .trailing).combined(with: .opacity))
                 }
             }
-            .animation(.smooth(duration: 0.25), value: geo.size.width >= 820)
+            .animation(.smooth(duration: 0.25), value: geo.size.width >= 780)
         }
         .navigationTitle("Timer")
         // Space: start / pause (when a text field has focus, the field takes the space itself).
@@ -212,32 +212,47 @@ struct TimerView: View {
         }
     }
 
-    /// Plan menu, block adjustment and session totals in one quiet row.
+    /// Plan menu, block adjustment and session totals; one row when there is room, two when not.
     @ViewBuilder
     private var planRow: some View {
         let s = model.store.settings
-        let timer = model.timer
-        HStack(spacing: 14) {
-            planMenu(s)
-            if s.breaksEnabled {
-                // Current block: click to change this block's lengths on the fly.
-                Button { showBlockAdjust.toggle() } label: {
-                    Label("Block \(timer.currentBlockNumber) · \(Int(timer.currentBlockWorkTarget / 60))/\(timer.currentBlockBreakMinutes) min",
-                          systemImage: "slider.horizontal.3")
-                }
-                .buttonStyle(.borderless)
-                .help("Adjust this block's work and break time")
-                .popover(isPresented: $showBlockAdjust, arrowEdge: .bottom) {
-                    BlockAdjustPopover()
-                }
-            }
-            if phase != .idle {
-                Label("Session: \(Fmt.hm(model.sessionWork)) work · \(Fmt.hm(timer.sessionBreakSeconds(now: model.now))) break", systemImage: "chart.pie")
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 14) { planControls(s); sessionLabel }
+            VStack(spacing: 8) {
+                HStack(spacing: 14) { planControls(s) }
+                sessionLabel
             }
         }
         .font(.callout)
         .foregroundStyle(Theme.inkSecondary)
         .tint(Theme.inkSecondary)
+    }
+
+    @ViewBuilder
+    private func planControls(_ s: AppSettings) -> some View {
+        let timer = model.timer
+        planMenu(s)
+        if s.breaksEnabled {
+            // Current block: click to change this block's lengths on the fly.
+            Button { showBlockAdjust.toggle() } label: {
+                Label("Block \(timer.currentBlockNumber) · \(Int(timer.currentBlockWorkTarget / 60))/\(timer.currentBlockBreakMinutes) min",
+                      systemImage: "slider.horizontal.3")
+            }
+            .buttonStyle(.borderless)
+            .fixedSize()
+            .help("Adjust this block's work and break time")
+            .popover(isPresented: $showBlockAdjust, arrowEdge: .bottom) {
+                BlockAdjustPopover()
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var sessionLabel: some View {
+        if phase != .idle {
+            Label("Session: \(Fmt.hm(model.sessionWork)) work · \(Fmt.hm(model.timer.sessionBreakSeconds(now: model.now))) break", systemImage: "chart.pie")
+                .fixedSize()
+        }
     }
 
     /// Plan menu: templates, custom plan, edit shortcuts.

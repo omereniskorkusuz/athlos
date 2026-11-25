@@ -92,6 +92,24 @@
     "%lld": {},
     "%lld breaks": {
       "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld break"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld breaks"
+                }
+              }
+            }
+          }
+        },
         "tr": {
           "stringUnit": {
             "state": "translated",
@@ -102,6 +120,24 @@
     },
     "%lld days": {
       "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld days"
+                }
+              }
+            }
+          }
+        },
         "tr": {
           "stringUnit": {
             "state": "translated",

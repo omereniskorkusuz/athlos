@@ -5,6 +5,7 @@ import AthlosCore
 /// a day timeline (work blocks, breaks, now), the day's sessions and today's notes.
 struct TodayPanel: View {
     @Environment(AppModel.self) private var model
+    static let width: CGFloat = 260
 
     var body: some View {
         let now = model.now
@@ -24,7 +25,7 @@ struct TodayPanel: View {
                         .foregroundStyle(progress >= 1 ? Theme.brandDeep : Theme.brandText)
                 }
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
-                    Text(Fmt.hm(work)).font(Theme.display(34, weight: .bold)).foregroundStyle(Theme.ink)
+                    Text(Fmt.hm(work)).font(Theme.display(30, weight: .bold)).foregroundStyle(Theme.ink)
                         .contentTransition(.numericText())
                     Text(verbatim: "/ " + Fmt.hm(goal)).font(.system(size: 14)).foregroundStyle(Theme.inkSecondary)
                 }
@@ -35,13 +36,16 @@ struct TodayPanel: View {
                 sessions(summary)
                 notes(day: day)
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 22)
+            .padding(.horizontal, 18)
+            .padding(.vertical, 20)
         }
         .scrollIndicators(.never)
-        .frame(width: 300)
-        .background(Theme.panel)
-        .overlay(alignment: .leading) { Rectangle().fill(Theme.line).frame(width: 1) }
+        .frame(width: TodayPanel.width)
+        .background {
+            // Runs up under the title bar like the rail.
+            HStack(spacing: 0) { Theme.line.frame(width: 1); Theme.panel }
+                .ignoresSafeArea(edges: .top)
+        }
     }
 
     // MARK: Sessions
@@ -113,7 +117,8 @@ private struct SessionRow: View {
                 RoundedRectangle(cornerRadius: 2).fill(project?.color ?? Theme.inkTertiary).frame(width: 3)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title).font(.system(size: 13, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                    Text(verbatim: "\(project?.name ?? "") · \(Fmt.time(row.start)) – \(row.end.map(Fmt.time) ?? String(localized: "now"))")
+                    // Times first so they never get cut off; the project name truncates instead.
+                    Text(verbatim: "\(Fmt.time(row.start)) – \(row.end.map(Fmt.time) ?? String(localized: "now")) · \(project?.name ?? "")")
                         .font(.system(size: 11.5)).foregroundStyle(Theme.inkSecondary).lineLimit(1)
                 }
                 Spacer(minLength: 6)

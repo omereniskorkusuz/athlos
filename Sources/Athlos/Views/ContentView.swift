@@ -8,11 +8,11 @@ struct ContentView: View {
 
     var body: some View {
         @Bindable var model = model
-        NavigationSplitView {
+        // A fixed-width icon rail + the page. (No NavigationSplitView: its sidebar can't be made this narrow.)
+        // The rail's color runs up under the title bar, so the traffic lights sit on the rail.
+        HStack(spacing: 0) {
             IconRail()
-                .navigationSplitViewColumnWidth(min: 84, ideal: 84, max: 84)
-                .toolbar(removing: .sidebarToggle)
-        } detail: {
+                .frame(width: IconRail.width)
             Group {
                 switch model.route {
                 case .timer: TimerView()
@@ -22,9 +22,18 @@ struct ContentView: View {
                 case .settings: SettingsView()
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .athlosPage()
-            .toolbarBackground(Theme.canvas, for: .windowToolbar)
         }
+        .background {
+            HStack(spacing: 0) {
+                Theme.rail.frame(width: IconRail.width)
+                Theme.line.frame(width: 1)
+                Theme.canvas
+            }
+            .ignoresSafeArea()
+        }
+        .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
         .tint(Theme.accent)
         .overlay(alignment: .top) {
             if let toast = model.toast {
@@ -83,10 +92,10 @@ private struct IconRail: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            AthlosLogo(size: 38)
+            AthlosLogo(size: 36)
                 .shadow(color: .black.opacity(0.22), radius: 4, y: 2)
-                .padding(.top, 4)
-                .padding(.bottom, 12)
+                .padding(.top, 6)
+                .padding(.bottom, 10)
             ForEach(Route.allCases.filter { $0 != .settings }, id: \.self) { r in
                 RailButton(route: r, selected: model.route == r, badge: badge(for: r)) { model.route = r }
             }
@@ -97,10 +106,10 @@ private struct IconRail: View {
                 .padding(.bottom, 14)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Theme.rail)
-        .overlay(alignment: .trailing) { Rectangle().fill(Theme.line).frame(width: 1) }
-        .toolbarBackground(Theme.rail, for: .windowToolbar)
     }
+
+    /// Wide enough for the window's traffic lights.
+    static let width: CGFloat = 76
 
     private func badge(for r: Route) -> Int? {
         guard r == .showcase else { return nil }
@@ -121,7 +130,7 @@ private struct RailButton: View {
             Image(systemName: route.symbol)
                 .font(.system(size: 17, weight: .medium))
                 .foregroundStyle(selected ? Theme.brandText : (hovering ? Theme.ink : Theme.inkSecondary))
-                .frame(width: 44, height: 44)
+                .frame(width: 42, height: 42)
                 .background {
                     if selected {
                         RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.brandSoft)
