@@ -163,7 +163,6 @@ private struct ProjectBar: View {
                 .clipShape(Capsule())
             }
             .frame(height: 10)
-            .animation(.smooth(duration: 0.6), value: summary.workSeconds)
             // Legend: up to three projects.
             FlowLegend(items: summary.projects.prefix(3).map { p in
                 (model.store.project(p.id)?.color ?? Theme.inkTertiary, model.store.project(p.id)?.name ?? "—", Fmt.hm(p.seconds))

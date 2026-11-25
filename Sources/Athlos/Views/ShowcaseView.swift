@@ -77,12 +77,15 @@ struct ShowcaseCard: View {
             ProjectIconView(project: project, size: 112, images: model.store.images)
                 .shadow(color: project.color.opacity(hovering ? 0.5 : 0.25), radius: hovering ? 16 : 8, y: 4)
             Text(project.name).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+            // Hours in the readable ink color (a dark project color would vanish on the dark theme);
+            // the project color stays as a short underline.
             Text(Fmt.hoursCompact(seconds))
                 .font(Theme.display(26, weight: .bold))
                 .monospacedDigit()
-                .foregroundStyle(project.color)
+                .foregroundStyle(Theme.ink)
+            Capsule().fill(project.color).frame(width: 28, height: 3)
             if let done = project.completedAt {
-                Text(Fmt.date(done)).font(.caption).foregroundStyle(.secondary)
+                Text(Fmt.date(done)).font(.caption).foregroundStyle(Theme.inkSecondary)
             }
         }
         .padding(20)
@@ -127,7 +130,7 @@ struct ShowcaseDetailView: View {
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(p.name).font(Theme.display(32, weight: .bold))
                                 Text(Fmt.hoursCompact(store.projectSeconds(p.id, now: now)))
-                                    .font(Theme.display(26)).foregroundStyle(p.color)
+                                    .font(Theme.display(26)).foregroundStyle(Theme.ink)
                                 Label("Finished", systemImage: "checkmark.seal.fill").foregroundStyle(Color.goalColor)
                             }
                         }

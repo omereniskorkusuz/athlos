@@ -310,7 +310,9 @@ icon's gold stays in the logo). Choose **Settings → Appearance → System / Li
 Dark**; *System* follows your Mac. The change applies immediately to the main window, the menu
 bar popover, the desktop panel and alerts. The macOS widgets follow your Mac's appearance.
 
-![Timer in the dark theme](assets/screenshot-timer-dark.png)
+![Timer in the light theme](assets/screenshot-timer-light.png)
+
+(The other screenshots in this guide show the dark theme.)
 
 **Language.** Athlos is in English by default and includes Turkish. Choose **Settings → Language →
 English / Türkçe / System** (*System* follows your Mac's language) and click **Restart now**.

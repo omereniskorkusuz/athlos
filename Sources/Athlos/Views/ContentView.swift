@@ -195,7 +195,6 @@ private struct RailGoalRing: View {
             }
         }
         .frame(width: 30, height: 30)
-        .animation(.smooth(duration: 0.6), value: progress)
         .help(Text("Daily goal: \(Fmt.hm(model.todayWork)) / \(Fmt.hm(model.dailyGoal))"))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("Daily goal")

@@ -54,7 +54,6 @@ struct GoalBarView: View {
                             .frame(width: max(progress > 0 ? 6 : 0, w * progress))
                     }
                 }
-                .animation(.smooth(duration: 0.6), value: progress)
             }
             .frame(height: compact ? 6 : 14)
 

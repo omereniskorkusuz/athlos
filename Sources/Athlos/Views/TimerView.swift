@@ -122,8 +122,6 @@ struct TimerView: View {
             .font(.system(size: 104, weight: .thin))
             .monospacedDigit()
             .tracking(-2)
-            .contentTransition(.numericText(countsDown: phase == .onBreak))
-            .animation(.smooth(duration: 0.3), value: Int(model.displaySeconds))
             .foregroundStyle(phase == .paused ? Theme.inkSecondary : phase == .onBreak ? Theme.rest : Theme.ink)
             .minimumScaleFactor(0.5)
             .lineLimit(1)
@@ -159,7 +157,6 @@ struct TimerView: View {
                         .layoutPriority(Double(b.workMinutes))
                     }
                 }
-                .animation(.smooth(duration: 0.6), value: done)
                 HStack {
                     Text(phase == .idle
                          ? String(localized: "Block \(timer.currentBlockNumber) · \(Fmt.hm(timer.currentBlockWorkTarget))")
