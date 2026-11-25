@@ -12,12 +12,19 @@ OUT=build/release
 rm -rf "$OUT"
 mkdir -p "$OUT"
 
+# Package from a clean copy outside Desktop/iCloud: those folders add extended attributes
+# (FinderInfo, fileprovider) that make `codesign --verify --strict` fail ("detritus not allowed"),
+# and a downloaded copy could then be reported as damaged.
+STAGE="$(mktemp -d)"
+ditto --norsrc --noextattr build/Athlos.app "$STAGE/Athlos.app"
+xattr -cr "$STAGE/Athlos.app"
+codesign --verify --deep --strict "$STAGE/Athlos.app"
+echo "▸ Signature verified on the clean copy"
+
 echo "▸ Zipping…"
-ditto -c -k --sequesterRsrc --keepParent build/Athlos.app "$OUT/Athlos-macOS.zip"
+(cd "$STAGE" && ditto -c -k --norsrc --noextattr --keepParent Athlos.app "$OLDPWD/$OUT/Athlos-macOS.zip")
 
 echo "▸ Creating the disk image…"
-STAGE="$(mktemp -d)"
-ditto build/Athlos.app "$STAGE/Athlos.app"
 ln -s /Applications "$STAGE/Applications"
 hdiutil create -quiet -volname "Athlos" -srcfolder "$STAGE" -ov -format UDZO "$OUT/Athlos-macOS.dmg"
 rm -rf "$STAGE"
