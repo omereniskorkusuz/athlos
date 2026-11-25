@@ -9,22 +9,22 @@ enum DemoData {
         let cal = Calendar.current
         let now = Date()
 
-        let storage = store.addProject(name: "Server Storage", icon: .symbol("server.rack"), colorHex: "#C9A45C",
+        let storage = store.addProject(name: "Server Storage", icon: .symbol("server.rack"), colorHex: "#A84B24",
                                        createdAt: cal.date(byAdding: .day, value: -60, to: now)!)
         let disk = store.addTopic(name: "Disk setup", projectID: storage.id)!
         let raid = store.addTopic(name: "RAID setup", projectID: storage.id, parentID: disk.id)!
         let nfs = store.addTopic(name: "NFS share", projectID: storage.id)!
-        let web = store.addProject(name: "Portfolio Website", icon: .emoji("🌐"), colorHex: "#5E8275",
+        let web = store.addProject(name: "Portfolio Website", icon: .emoji("🌐"), colorHex: "#4E7C8A",
                                    createdAt: cal.date(byAdding: .day, value: -40, to: now)!)
         let ui = store.addTopic(name: "Interface", projectID: web.id)!
         let seo = store.addTopic(name: "SEO", projectID: web.id)!
 
-        var kenshell = store.addProject(name: "Kenshell", icon: .symbol("terminal.fill"), colorHex: "#3A3328",
+        var kenshell = store.addProject(name: "Kenshell", icon: .symbol("terminal.fill"), colorHex: "#3F3F46",
                                         manualSeconds: 19 * 3600, status: .completed,
                                         createdAt: cal.date(byAdding: .day, value: -200, to: now)!)
         kenshell.completedAt = cal.date(byAdding: .day, value: -150, to: now)
         store.updateProject(kenshell)
-        var tez = store.addProject(name: "Thesis", icon: .emoji("🎓"), colorHex: "#A97F3C",
+        var tez = store.addProject(name: "Thesis", icon: .emoji("🎓"), colorHex: "#8A6A4F",
                                    manualSeconds: 121 * 3600, status: .completed,
                                    createdAt: cal.date(byAdding: .day, value: -400, to: now)!)
         tez.completedAt = cal.date(byAdding: .day, value: -250, to: now)

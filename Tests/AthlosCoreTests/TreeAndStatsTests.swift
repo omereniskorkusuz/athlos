@@ -184,3 +184,35 @@ struct BackupTests {
         #expect(reloaded.projects.first?.status == .completed)
     }
 }
+
+@Suite("Day summary")
+struct DaySummaryTests {
+    @Test func groupsSessionsAndSplitsBreaks() {
+        let cal = Calendar(identifier: .gregorian)
+        let day = cal.dateInterval(of: .day, for: Date(timeIntervalSince1970: 1_800_000_000))!
+        let p1 = UUID(), p2 = UUID(), t1 = UUID(), s1 = UUID()
+        let h: (Double) -> Date = { day.start + $0 * 3600 }
+        let entries = [
+            // Yesterday evening into today: only today's part counts.
+            TimeEntry(projectID: p2, topicID: nil, start: day.start - 1800, end: h(0.5)),
+            // One session with a pause: two parts on the same topic → one row.
+            TimeEntry(projectID: p1, topicID: t1, start: h(9), end: h(10), sessionID: s1),
+            TimeEntry(projectID: p1, topicID: t1, kind: .breakTime, start: h(10), end: h(10.25), sessionID: s1),
+            TimeEntry(projectID: p1, topicID: t1, start: h(10.25), end: h(11), sessionID: s1),
+            // Running now.
+            TimeEntry(projectID: p2, topicID: nil, start: h(13), end: nil),
+        ]
+        let s = DaySummary.make(entries, day: day, now: h(14))
+        #expect(s.workSeconds == 0.5 * 3600 + 1.75 * 3600 + 3600)
+        #expect(s.projects.first?.id == p1)
+        #expect(s.projects.first?.seconds == 1.75 * 3600)
+        #expect(s.breakSeconds == 900)
+        #expect(s.breakCount == 1)
+        #expect(s.rows.count == 3)
+        #expect(s.rows.first?.end == nil)          // newest = the running one
+        #expect(s.rows[1].seconds == 1.75 * 3600)  // merged session
+        #expect(s.rows[1].end == h(11))
+        #expect(s.segments.first?.start == day.start) // clipped to the day
+        #expect(s.segments.count == 5)
+    }
+}

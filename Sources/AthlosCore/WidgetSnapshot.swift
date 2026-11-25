@@ -116,7 +116,10 @@ public enum WidgetCommand: String, Codable, Sendable, CaseIterable {
     public func send() throws {
         let dir = WidgetSnapshot.commandsDirectory
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-        let name = "\(Int(Date().timeIntervalSince1970 * 1000))-\(UUID().uuidString.prefix(6)).\(rawValue)"
+        // "<ms>-<system uptime ns, zero-padded>-<random>.<command>": the uptime part keeps two commands sent in the
+        // same millisecond in order (it is system-wide, so it also orders the widget's and the app's commands).
+        let uptime = String(format: "%020llu", DispatchTime.now().uptimeNanoseconds)
+        let name = "\(Int(Date().timeIntervalSince1970 * 1000))-\(uptime)-\(UUID().uuidString.prefix(6)).\(rawValue)"
         try Data(rawValue.utf8).write(to: dir.appendingPathComponent(name), options: .atomic)
         CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),
                                              CFNotificationName(WidgetSnapshot.commandNotification as CFString),

@@ -22,7 +22,7 @@ struct ProjectDetailView: View {
                         Spacer()
                     }
                     HStack(spacing: 12) {
-                        StatTile(title: "Today", value: Fmt.hm(model.store.projectSeconds(p.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: Theme.gold)
+                        StatTile(title: "Today", value: Fmt.hm(model.store.projectSeconds(p.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: Theme.brand)
                         StatTile(title: "Total", value: Fmt.hm(model.store.projectSeconds(p.id, now: now)), systemImage: "sum", tint: p.color)
                         StatTile(title: "Subtopic", value: "\(model.store.topics.filter { $0.projectID == p.id }.count)", systemImage: "list.bullet.indent", tint: Theme.inkTertiary)
                     }
@@ -97,17 +97,17 @@ struct TopicDetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     // Path (breadcrumb) – clickable
                     HStack(spacing: 4) {
-                        Button(p.name) { model.treeSelection = .project(p.id) }.buttonStyle(.plain).foregroundStyle(Theme.goldText)
+                        Button(p.name) { model.treeSelection = .project(p.id) }.buttonStyle(.plain).foregroundStyle(Theme.brandText)
                         ForEach(model.store.ancestry(of: t.id).dropLast()) { a in
                             Image(systemName: "chevron.right").font(.caption2).foregroundStyle(.tertiary)
-                            Button(a.name) { model.treeSelection = .topic(a.id) }.buttonStyle(.plain).foregroundStyle(Theme.goldText)
+                            Button(a.name) { model.treeSelection = .topic(a.id) }.buttonStyle(.plain).foregroundStyle(Theme.brandText)
                         }
                     }
                     .font(.callout)
                     Text(t.name).font(Theme.display(32, weight: .bold))
 
                     HStack(spacing: 12) {
-                        StatTile(title: "Today", value: Fmt.hm(model.store.topicSeconds(t.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: Theme.gold)
+                        StatTile(title: "Today", value: Fmt.hm(model.store.topicSeconds(t.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: Theme.brand)
                         StatTile(title: "Total", value: Fmt.hm(totals[t.id] ?? 0), systemImage: "sum", tint: p.color)
                         StatTile(title: "Entries", value: "\(model.store.entries.filter { $0.topicID == t.id && $0.kind == .work }.count)", systemImage: "list.number", tint: Theme.inkTertiary)
                     }
@@ -115,7 +115,7 @@ struct TopicDetailView: View {
                     HStack {
                         if isActive {
                             Label(model.timer.phase == .working ? "In progress" : "Session open", systemImage: "record.circle")
-                                .foregroundStyle(Theme.goldText)
+                                .foregroundStyle(Theme.brandText)
                         } else {
                             Button { model.start(projectID: p.id, topicID: t.id) } label: { Label("Start", systemImage: "play.fill") }
                                 .buttonStyle(.borderedProminent)

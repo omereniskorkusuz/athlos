@@ -11,10 +11,10 @@
 </p>
 
 <p align="center">
-  <img alt="macOS 15+" src="https://img.shields.io/badge/macOS-15%2B-C9A45C" />
-  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-native-C9A45C" />
-  <img alt="Offline" src="https://img.shields.io/badge/data-100%25%20local-C9A45C" />
-  <img alt="Languages" src="https://img.shields.io/badge/languages-English%20%C2%B7%20T%C3%BCrk%C3%A7e-C9A45C" />
+  <img alt="macOS 15+" src="https://img.shields.io/badge/macOS-15%2B-A84B24" />
+  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-native-A84B24" />
+  <img alt="Offline" src="https://img.shields.io/badge/data-100%25%20local-A84B24" />
+  <img alt="Languages" src="https://img.shields.io/badge/languages-English%20%C2%B7%20T%C3%BCrk%C3%A7e-A84B24" />
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshot-timer.png" width="900" alt="The Athlos timer in the light marble theme: the topic RAID setup in a serif title, a large running clock, the break-plan progress line, Pause / Break / Stop buttons, the daily goal ring at 82% and a session notes card" />
+  <img src="docs/assets/screenshot-timer.png" width="900" alt="The Athlos timer in the light theme: an icon rail with the logo on the left; in the middle the topic RAID setup in a serif title, a large running clock, the break-plan progress line and Pause / Break / Stop buttons; on the right the Today panel with 4h 54m of 6h, a bar of work per project, a day timeline, the day's sessions and notes" />
 </p>
 
 ## Why Athlos
@@ -46,14 +46,18 @@ The interface is in English, with Turkish one click away in **Settings → Langu
 
 ### Light and dark
 
-The design comes from the app icon: warm marble ivory, a gold ring and a serif "A". Choose
-**Light** (marble), **Dark** (night) or **System** in **Settings → Appearance**; the change
-applies at once to the window, the menu bar popover and the desktop panel.
+Neutral graphite surfaces with a copper accent and serif titles; the gold of the app icon stays in
+the logo and its star. Choose **Light**, **Dark** or **System** in **Settings → Appearance**; the
+change applies at once to the window, the menu bar popover and the desktop panel.
+
+The **Today** panel next to the timer sums up your day at a glance: time against your goal, a bar
+of work per project, a timeline from morning to evening with every work block and break, the
+day's sessions (click one to continue it) and today's notes.
 
 <p align="center">
-  <img src="docs/assets/screenshot-timer-dark.png" width="440" alt="The timer in the dark night theme: gold Pause button and a gold daily goal ring on warm charcoal" />
+  <img src="docs/assets/screenshot-timer-dark.png" width="440" alt="The timer in the dark theme: copper Pause button, the icon rail and the Today panel on graphite" />
   &nbsp;
-  <img src="docs/assets/screenshot-stats-dark.png" width="440" alt="Statistics in the dark theme: summary tiles, a stacked chart in gold and sage, the monthly calendar and the work/break ring" />
+  <img src="docs/assets/screenshot-stats-dark.png" width="440" alt="Statistics in the dark theme: summary tiles, a stacked chart per project in copper and steel blue, the monthly calendar and the work/break ring" />
 </p>
 
 ## Download and install
@@ -104,11 +108,11 @@ the fly without touching the template.
 ### Statistics and the work calendar
 
 <p align="center">
-  <img src="docs/assets/screenshot-calendar.png" width="900" alt="Statistics: the monthly calendar where each day is shaded gold by the time worked and goal days are the deepest gold, the work/break ratio ring and per-project totals" />
+  <img src="docs/assets/screenshot-calendar.png" width="900" alt="Statistics: the monthly calendar where each day is shaded copper by the time worked and goal days are the strongest copper, the work/break ratio ring and per-project totals" />
 </p>
 
 Daily, weekly and monthly charts per project, a monthly calendar where every day is colored by
-how much you worked (goal days turn gold), your streak, today's breaks and the work/break
+how much you worked (goal days stand out in deep copper), your streak, today's breaks and the work/break
 ratio. The **History** tab lists every entry: edit start and end times, delete entries, or add
 time you forgot to track. Athlos warns you when a manual entry overlaps existing time, so
 nothing is counted twice.
@@ -127,7 +131,7 @@ also add projects you finished before Athlos existed: upload the logo, enter the
 ## Widgets
 
 <p align="center">
-  <img src="docs/assets/widget-calendar-large.png" width="300" alt="Work Calendar widget, large: this month's calendar with daily times, goal days in gold and the daily goal bar" />
+  <img src="docs/assets/widget-calendar-large.png" width="300" alt="Work Calendar widget, large: this month's calendar with daily times, goal days highlighted in bright copper and the daily goal bar" />
   &nbsp;
   <img src="docs/assets/widget-timer-medium.png" width="420" alt="Athlos Timer widget, medium: a running timer for RAID setup with Pause, Break and Stop buttons" />
 </p>
@@ -165,7 +169,7 @@ optional in-app **desktop panel**.
 - **Break flow:** notifications when a break starts and ends, automatic break countdown,
   skip or snooze (5 min by default), manual breaks. Breaks are recorded but never counted as
   work.
-- **Daily goal:** 6 hours by default, adjustable. A live bar that turns gold past the goal and
+- **Daily goal:** 6 hours by default, adjustable. A live bar that turns deep copper past the goal and
   a small celebration when you reach it.
 
 **Organizing and history**
@@ -183,8 +187,8 @@ optional in-app **desktop panel**.
 - **Everywhere on macOS:** main window, menu bar, global shortcut, macOS widgets, desktop
   panel.
 - **Languages:** English and Turkish.
-- **Appearance:** light (marble) and dark (night) themes taken from the app icon, or follow
-  the system.
+- **Appearance:** light and dark themes (graphite + copper), or follow the system.
+- **Today panel:** time vs. goal, work per project, a day timeline, sessions and notes.
 
 ## Your data
 

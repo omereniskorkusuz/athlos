@@ -113,7 +113,7 @@ struct ProjectTreeView: View {
             Text(p.name).fontWeight(.semibold).lineLimit(1)
             Spacer()
             if model.store.runtime.projectID == p.id, model.store.runtime.topicID == nil, model.timer.phase == .working {
-                Image(systemName: "record.circle").foregroundStyle(Theme.goldText).symbolEffect(.pulse)
+                Image(systemName: "record.circle").foregroundStyle(Theme.brandText).symbolEffect(.pulse)
             }
             Text(Fmt.hm(model.store.projectSeconds(p.id, now: model.now)))
                 .font(.caption.monospacedDigit())
@@ -166,12 +166,12 @@ struct TopicTreeRow: View {
     private var label: some View {
         HStack(spacing: 6) {
             Image(systemName: isActive ? "record.circle" : "number")
-                .foregroundStyle(isActive ? AnyShapeStyle(Theme.goldText) : AnyShapeStyle(.tertiary))
+                .foregroundStyle(isActive ? AnyShapeStyle(Theme.brandText) : AnyShapeStyle(.tertiary))
                 .font(.caption)
             Text(topic.name).lineLimit(1)
             Spacer()
             if let t = today[topic.id], t >= 60 {
-                Text(Fmt.hm(t)).font(.caption2.monospacedDigit()).foregroundStyle(Theme.goldText)
+                Text(Fmt.hm(t)).font(.caption2.monospacedDigit()).foregroundStyle(Theme.brandText)
                     .help("Today")
             }
             Text(Fmt.hm(totals[topic.id] ?? 0))

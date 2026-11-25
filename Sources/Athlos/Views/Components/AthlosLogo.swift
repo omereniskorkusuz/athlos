@@ -60,19 +60,3 @@ struct AthlosLogo: View {
     }
 }
 
-/// Logo + "Athlos" wordmark in serif, for the sidebar and the welcome screen.
-struct AthlosBrand: View {
-    var logoSize: CGFloat = 38
-
-    var body: some View {
-        HStack(spacing: 11) {
-            AthlosLogo(size: logoSize)
-                .shadow(color: .black.opacity(0.22), radius: 5, y: 3)
-            Text(verbatim: "Athlos")
-                .font(Theme.display(logoSize * 0.66, weight: .bold))
-                .foregroundStyle(Theme.ink)
-        }
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Athlos")
-    }
-}

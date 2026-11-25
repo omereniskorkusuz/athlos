@@ -123,3 +123,84 @@ public extension AppStore {
         return Stats.streak(dailyTotals: totals, goal: settings.dailyGoalSeconds, today: now, calendar: calendar)
     }
 }
+
+// MARK: - Day summary (the Today panel)
+
+/// What happened on one day: work per project, sessions, breaks and a timeline. Pure and testable.
+public struct DaySummary: Sendable, Equatable {
+    /// One row of the day list: a session on one topic (pause/resume parts merged).
+    public struct Row: Sendable, Equatable, Identifiable {
+        public var id: UUID
+        public var projectID: UUID
+        public var topicID: UUID?
+        public var start: Date
+        /// nil while the session is still running.
+        public var end: Date?
+        public var seconds: TimeInterval
+    }
+
+    /// A piece of the timeline (clipped to the day).
+    public struct Segment: Sendable, Equatable {
+        public var start: Date
+        public var end: Date
+        public var kind: EntryKind
+        public var projectID: UUID
+    }
+
+    /// Work per project, largest first.
+    public var projects: [(id: UUID, seconds: TimeInterval)]
+    public var workSeconds: TimeInterval
+    public var breakSeconds: TimeInterval
+    public var breakCount: Int
+    /// Newest first.
+    public var rows: [Row]
+    /// In time order.
+    public var segments: [Segment]
+
+    public static func == (a: DaySummary, b: DaySummary) -> Bool {
+        a.projects.map(\.id) == b.projects.map(\.id) && a.projects.map(\.seconds) == b.projects.map(\.seconds)
+            && a.workSeconds == b.workSeconds && a.breakSeconds == b.breakSeconds && a.breakCount == b.breakCount
+            && a.rows == b.rows && a.segments == b.segments
+    }
+
+    public static func make(_ entries: [TimeEntry], day: DateInterval, now: Date) -> DaySummary {
+        let todays = entries.filter { $0.start < day.end && ($0.end ?? now) > day.start }.sorted { $0.start < $1.start }
+        var perProject: [UUID: TimeInterval] = [:]
+        var rowsByKey: [String: Row] = [:]
+        var segments: [Segment] = []
+        var breakSeconds: TimeInterval = 0
+        var breakSessions = Set<String>()
+
+        for e in todays {
+            let secs = e.duration(in: day, now: now)
+            let segEnd = min(e.end ?? now, day.end)
+            let segStart = max(e.start, day.start)
+            if segEnd > segStart {
+                segments.append(Segment(start: segStart, end: segEnd, kind: e.kind, projectID: e.projectID))
+            }
+            if e.kind == .breakTime {
+                breakSeconds += secs
+                breakSessions.insert(e.id.uuidString)
+                continue
+            }
+            perProject[e.projectID, default: 0] += secs
+            let key = "\(e.sessionID?.uuidString ?? e.id.uuidString)|\(e.topicID?.uuidString ?? e.projectID.uuidString)"
+            if var r = rowsByKey[key] {
+                r.seconds += secs
+                r.end = e.isRunning ? nil : max(r.end ?? e.end!, e.end!)
+                rowsByKey[key] = r
+            } else {
+                rowsByKey[key] = Row(id: e.id, projectID: e.projectID, topicID: e.topicID, start: segStart,
+                                     end: e.isRunning ? nil : segEnd, seconds: secs)
+            }
+        }
+        let projects = perProject.filter { $0.value >= 1 }.map { (id: $0.key, seconds: $0.value) }
+            .sorted { $0.seconds > $1.seconds }
+        return DaySummary(projects: projects,
+                          workSeconds: perProject.values.reduce(0, +),
+                          breakSeconds: breakSeconds,
+                          breakCount: breakSessions.count,
+                          rows: rowsByKey.values.filter { $0.seconds >= 1 }.sorted { $0.start > $1.start },
+                          segments: segments)
+    }
+}

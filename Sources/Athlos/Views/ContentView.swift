@@ -9,8 +9,9 @@ struct ContentView: View {
     var body: some View {
         @Bindable var model = model
         NavigationSplitView {
-            Sidebar()
-                .navigationSplitViewColumnWidth(min: 200, ideal: 224, max: 280)
+            IconRail()
+                .navigationSplitViewColumnWidth(min: 84, ideal: 84, max: 84)
+                .toolbar(removing: .sidebarToggle)
         } detail: {
             Group {
                 switch model.route {
@@ -75,33 +76,30 @@ struct ContentView: View {
 
 }
 
-/// Sidebar: logo + wordmark, page buttons, live status at the bottom.
-/// Plain buttons instead of a List so the marble style (and the selected pill) is fully ours.
-private struct Sidebar: View {
+/// Sidebar as a narrow icon rail: logo, page buttons (tooltips), Settings and a daily-goal ring at the bottom.
+/// Plain buttons instead of a List so the style (selected tile + star mark) is fully ours.
+private struct IconRail: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            AthlosBrand(logoSize: 36)
-                .padding(.horizontal, 16)
-                .padding(.top, 6)
-                .padding(.bottom, 18)
-            ScrollView {
-                VStack(spacing: 3) {
-                    ForEach(Route.allCases, id: \.self) { r in
-                        SidebarRow(route: r, selected: model.route == r, badge: badge(for: r)) { model.route = r }
-                    }
-                }
-                .padding(.horizontal, 10)
+        VStack(spacing: 8) {
+            AthlosLogo(size: 38)
+                .shadow(color: .black.opacity(0.22), radius: 4, y: 2)
+                .padding(.top, 4)
+                .padding(.bottom, 12)
+            ForEach(Route.allCases.filter { $0 != .settings }, id: \.self) { r in
+                RailButton(route: r, selected: model.route == r, badge: badge(for: r)) { model.route = r }
             }
-            .scrollIndicators(.never)
-            SidebarStatus()
-                .padding(12)
-                .athlosCard(radius: 12)
-                .padding(10)
+            Spacer(minLength: 8)
+            RailButton(route: .settings, selected: model.route == .settings, badge: nil) { model.route = .settings }
+            RailGoalRing()
+                .padding(.top, 4)
+                .padding(.bottom, 14)
         }
-        .background(Theme.sidebar)
-        .toolbarBackground(Theme.sidebar, for: .windowToolbar)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Theme.rail)
+        .overlay(alignment: .trailing) { Rectangle().fill(Theme.line).frame(width: 1) }
+        .toolbarBackground(Theme.rail, for: .windowToolbar)
     }
 
     private func badge(for r: Route) -> Int? {
@@ -111,7 +109,7 @@ private struct Sidebar: View {
     }
 }
 
-private struct SidebarRow: View {
+private struct RailButton: View {
     let route: Route
     let selected: Bool
     let badge: Int?
@@ -120,67 +118,79 @@ private struct SidebarRow: View {
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 10) {
-                Image(systemName: route.symbol)
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(selected ? Theme.goldText : Theme.inkSecondary)
-                    .frame(width: 20)
-                Text(route.title)
-                    .font(.system(size: 13.5, weight: selected ? .semibold : .regular))
-                    .foregroundStyle(selected ? Theme.ink : Theme.ink.opacity(0.82))
-                    .lineLimit(1)
-                    .fixedSize()
-                Spacer(minLength: 4)
-                if let badge {
-                    Text(verbatim: "\(badge)")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundStyle(Theme.goldText)
-                        .padding(.horizontal, 7).padding(.vertical, 1)
-                        .background(Theme.goldSoft, in: Capsule())
+            Image(systemName: route.symbol)
+                .font(.system(size: 17, weight: .medium))
+                .foregroundStyle(selected ? Theme.brandText : (hovering ? Theme.ink : Theme.inkSecondary))
+                .frame(width: 44, height: 44)
+                .background {
+                    if selected {
+                        RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.brandSoft)
+                    } else if hovering {
+                        RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.ink.opacity(0.06))
+                    }
                 }
-            }
-            .padding(.horizontal, 10)
-            .frame(height: 34)
-            .background {
-                if selected {
-                    RoundedRectangle(cornerRadius: 9, style: .continuous).fill(Theme.card)
-                        .overlay(RoundedRectangle(cornerRadius: 9, style: .continuous).strokeBorder(Theme.line))
-                        .shadow(color: .black.opacity(0.06), radius: 1.5, y: 1)
-                } else if hovering {
-                    RoundedRectangle(cornerRadius: 9, style: .continuous).fill(Theme.ink.opacity(0.05))
+                .overlay(alignment: .leading) {
+                    // The logo's four-pointed star marks the current page.
+                    if selected {
+                        StarMark().fill(Theme.star).frame(width: 9, height: 9).offset(x: -6)
+                    }
                 }
-            }
-            .contentShape(Rectangle())
+                .overlay(alignment: .topTrailing) {
+                    if let badge {
+                        Text(verbatim: "\(badge)")
+                            .font(.system(size: 9.5, weight: .bold))
+                            .foregroundStyle(Theme.onPrimary)
+                            .frame(minWidth: 15, minHeight: 15)
+                            .background(Theme.brand, in: Capsule())
+                            .offset(x: 2, y: -2)
+                    }
+                }
+                .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .onHover { hovering = $0 }
+        .help(Text(route.title))
+        .accessibilityLabel(Text(route.title))
         .accessibilityAddTraits(selected ? .isSelected : [])
     }
 }
 
-/// Small live status under the sidebar (active topic + daily goal bar).
-private struct SidebarStatus: View {
+/// Four-pointed star from the logo.
+struct StarMark: Shape {
+    func path(in r: CGRect) -> Path {
+        let c = CGPoint(x: r.midX, y: r.midY), w = r.width / 2, h = r.height / 2, k: CGFloat = 0.19
+        var p = Path()
+        p.addLines([CGPoint(x: c.x, y: c.y - h), CGPoint(x: c.x + w * k, y: c.y - h * k), CGPoint(x: c.x + w, y: c.y),
+                    CGPoint(x: c.x + w * k, y: c.y + h * k), CGPoint(x: c.x, y: c.y + h), CGPoint(x: c.x - w * k, y: c.y + h * k),
+                    CGPoint(x: c.x - w, y: c.y), CGPoint(x: c.x - w * k, y: c.y - h * k)])
+        p.closeSubpath()
+        return p
+    }
+}
+
+/// Small daily-goal ring at the bottom of the rail; shows the running time on hover.
+private struct RailGoalRing: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        let progress = model.todayWork / max(model.dailyGoal, 1)
+        ZStack {
+            Circle().stroke(Theme.track, lineWidth: 3)
+            Circle().trim(from: 0, to: min(progress, 1))
+                .stroke(progress >= 1 ? Theme.brandDeep : Theme.brand, style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                .rotationEffect(.degrees(-90))
             if model.timer.phase != .idle {
-                HStack(spacing: 6) {
-                    Circle()
-                        .fill(model.timer.phase == .working ? Theme.gold : model.timer.phase == .onBreak ? Theme.rest : Theme.paused)
-                        .frame(width: 7, height: 7)
-                    Text(model.activePath.last ?? "")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(Theme.ink)
-                        .lineLimit(1)
-                    Spacer()
-                    Text(model.menuBarTitle.dropFirst(2))
-                        .font(.caption.monospacedDigit())
-                        .foregroundStyle(Theme.inkSecondary)
-                }
+                Circle()
+                    .fill(model.timer.phase == .working ? Theme.brand : model.timer.phase == .onBreak ? Theme.rest : Theme.paused)
+                    .frame(width: 7, height: 7)
             }
-            GoalBarView(compact: true)
         }
+        .frame(width: 30, height: 30)
+        .animation(.smooth(duration: 0.6), value: progress)
+        .help(Text("Daily goal: \(Fmt.hm(model.todayWork)) / \(Fmt.hm(model.dailyGoal))"))
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Daily goal")
+        .accessibilityValue(Text("\(Fmt.spoken(model.todayWork)) / \(Fmt.spoken(model.dailyGoal))"))
     }
 }
 
@@ -225,7 +235,7 @@ struct StopSessionSheet: View {
 struct CelebrationView: View {
     @State private var animate = false
     private let pieces: [(x: CGFloat, delay: Double, color: Color, symbol: String)] = (0..<36).map { i in
-        let colors: [Color] = [Theme.goldBright, Theme.gold, Theme.goldDeep, Theme.rest, Color(hex: "#FBF6EC"), Theme.goldBright]
+        let colors: [Color] = [Theme.brandBright, Theme.brand, Theme.brandDeep, Theme.rest, Theme.star, Theme.brandBright]
         let symbols = ["star.fill", "sparkle", "circle.fill", "seal.fill"]
         return (CGFloat.random(in: 0.05...0.95), Double.random(in: 0...0.6), colors[i % colors.count], symbols[i % symbols.count])
     }

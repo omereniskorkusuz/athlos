@@ -15,7 +15,7 @@ struct AthlosApp: App {
                 .frame(minWidth: 820, minHeight: 560)
                 .task { appDelegate.model = model }
         }
-        .defaultSize(width: 1080, height: 720)
+        .defaultSize(width: 1120, height: 740)
         .windowToolbarStyle(.unified)
         .commands { AthlosCommands(model: model) }
 

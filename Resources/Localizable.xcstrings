@@ -17,22 +17,22 @@
         }
       }
     },
+    "%@ of goal": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hedefin %@ kadarı"
+          }
+        }
+      }
+    },
     "%@ over your goal": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Hedefin %@ üzerindesin"
-          }
-        }
-      }
-    },
-    "%@ to go": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ kaldı"
           }
         }
       }
@@ -90,12 +90,12 @@
       "shouldTranslate": false
     },
     "%lld": {},
-    "%lld blocks · %@": {
+    "%lld breaks": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld blok · %@"
+            "value": "%lld mola"
           }
         }
       }
@@ -547,6 +547,16 @@
         }
       }
     },
+    "Breaks": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molalar"
+          }
+        }
+      }
+    },
     "Breaks on": {
       "localizations": {
         "tr": {
@@ -583,6 +593,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Başlık Seç…"
+          }
+        }
+      }
+    },
+    "Choose a light or dark window; “System” follows your Mac.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık ya da koyu pencere seç; “Sistem” Mac'ini izler."
           }
         }
       }
@@ -713,6 +733,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Devam et"
+          }
+        }
+      }
+    },
+    "Continue this topic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu başlıkla devam et"
           }
         }
       }
@@ -857,6 +887,16 @@
         }
       }
     },
+    "Daily goal: %@ / %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günlük hedef: %@ / %@"
+          }
+        }
+      }
+    },
     "Dark": {
       "localizations": {
         "tr": {
@@ -883,6 +923,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tarih"
+          }
+        }
+      }
+    },
+    "Day timeline": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gün çizelgesi"
           }
         }
       }
@@ -1518,16 +1568,6 @@
         }
       }
     },
-    "Light is the marble theme, Dark the night theme. “System” follows your Mac.": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Açık mermer tema, Koyu gece temasıdır. “Sistem” Mac'inin görünümünü izler."
-          }
-        }
-      }
-    },
     "Linked to a time entry": {
       "localizations": {
         "tr": {
@@ -1908,12 +1948,12 @@
         }
       }
     },
-    "Notes from this session": {
+    "Nothing recorded yet today.": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bu oturumun notları"
+            "value": "Bugün henüz kayıt yok."
           }
         }
       }
@@ -2148,12 +2188,12 @@
         }
       }
     },
-    "Quick note… (⌘↩ to save)": {
+    "Quick note for this session… (⌘↩ to save)": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hızlı not… (⌘↩ ile kaydet)"
+            "value": "Bu oturum için hızlı not… (⌘↩ ile kaydet)"
           }
         }
       }
@@ -2328,6 +2368,16 @@
         }
       }
     },
+    "Running now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu an sürüyor"
+          }
+        }
+      }
+    },
     "SF Symbol": {},
     "Sample day, starting at:": {
       "localizations": {
@@ -2405,16 +2455,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Çalışma süreni canlı gör; başlat, duraklat, mola ver ve bitir."
-          }
-        }
-      }
-    },
-    "Session notes": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oturum notları"
           }
         }
       }
@@ -2899,12 +2939,12 @@
         }
       }
     },
-    "This month's work heatmap: how much you worked each day, with goal days in gold.": {
+    "This month's work heatmap: how much you worked each day, with goal days highlighted.": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bu ayın çalışma ısı haritası: her gün ne kadar çalıştın, hedefi tutturduğun günler altın renkte."
+            "value": "Bu ayın çalışma ısı haritası: her gün ne kadar çalıştın, hedefi tutturduğun günler vurgulu."
           }
         }
       }
@@ -3025,6 +3065,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bugün"
+          }
+        }
+      }
+    },
+    "Today's notes": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bugünün notları"
           }
         }
       }
@@ -3229,6 +3279,16 @@
         }
       }
     },
+    "Work by project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projelere göre çalışma"
+          }
+        }
+      }
+    },
     "Work time": {
       "localizations": {
         "tr": {
@@ -3345,6 +3405,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "dk"
+          }
+        }
+      }
+    },
+    "now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "şimdi"
           }
         }
       }

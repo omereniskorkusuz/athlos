@@ -81,7 +81,7 @@ struct HistoryView: View {
                     .width(min: 100, ideal: 120)
                     TableColumn("Duration") { e in
                         Text(Fmt.clock(e.duration(now: now))).monospacedDigit()
-                            .foregroundStyle(e.isRunning ? Theme.goldText : Theme.ink)
+                            .foregroundStyle(e.isRunning ? Theme.brandText : Theme.ink)
                     }
                     .width(min: 70, ideal: 80)
                     TableColumn("Type") { e in

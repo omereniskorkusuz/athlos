@@ -2,7 +2,7 @@ import SwiftUI
 import AthlosCore
 
 /// Monthly work calendar (heatmap). One box per day; the color fills with that day's work,
-/// goal days in gold. No scroll view → boxes aren't cut off and clicks land exactly.
+/// goal days in deep copper. No scroll view → boxes aren't cut off and clicks land exactly.
 struct MonthHeatmapView: View {
     @Environment(AppModel.self) private var model
     /// Smaller, simpler drawing for the widget (no day numbers).
@@ -97,7 +97,7 @@ struct MonthHeatmapView: View {
                                 Text(Fmt.hm(seconds)).font(.system(size: 9)).opacity(0.85)
                         }
                     }
-                    .foregroundStyle(seconds / max(goal, 1) > 0.45 ? Color.black.opacity(0.75) : Color.primary.opacity(isFuture ? 0.3 : 0.85))
+                    .foregroundStyle(seconds / max(goal, 1) > 0.45 ? Theme.onPrimary : Theme.ink.opacity(isFuture ? 0.3 : 0.85))
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
                 }
@@ -152,12 +152,12 @@ struct MonthHeatmapView: View {
 
     // MARK: Helpers
 
-    /// 0 → gray; a little → light green (still visible); darker green toward the goal; goal → gold.
+    /// 0 → track; a little → light copper (still visible); stronger toward the goal; goal → deep copper.
     static func color(for seconds: TimeInterval, goal: TimeInterval) -> Color {
         guard seconds >= 60 else { return Theme.track.opacity(0.7) }
         let ratio = seconds / max(goal, 1)
-        if ratio >= 1 { return Theme.goldDeep }
-        return Theme.gold.opacity(0.28 + 0.6 * min(ratio, 1))
+        if ratio >= 1 { return Theme.brandDeep }
+        return Theme.brand.opacity(0.28 + 0.6 * min(ratio, 1))
     }
 
     private func daysInMonth(_ cal: Calendar) -> [Date] {

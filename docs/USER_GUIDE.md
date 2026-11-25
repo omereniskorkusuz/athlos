@@ -60,11 +60,13 @@ xattr -dr com.apple.quarantine /Applications/Athlos.app
 The first time you open Athlos you see a welcome screen. Click **Create your first project**,
 give it a name and an icon, and you're ready.
 
-The window has five pages in the sidebar:
+The window has five pages, one icon each in the narrow rail on the left (hover an icon for its
+name; the copper tile and the small star mark the current page). At the bottom of the rail a
+small ring shows your daily goal; a dot in it shows whether the timer is running.
 
 | Page | What it's for |
 |---|---|
-| **Timer** | The big clock, the active topic, start/pause/stop, breaks, quick notes, daily goal |
+| **Timer** | The big clock, the active topic, start/pause/stop, breaks, quick notes, the Today panel |
 | **Projects** | Your project tree, topic details and notes |
 | **Statistics** | Charts, the monthly work calendar and the history of all entries |
 | **Completed** | A gallery of the projects you finished |
@@ -96,6 +98,11 @@ running. To quit, use **Athlos → Quit Athlos** (⌘Q) or **Quit** in the menu 
 ## 4. The timer
 
 ![Timer](assets/screenshot-timer.png)
+
+The **Today** panel on the right (shown when the window is wide enough) sums up the day: time
+against your goal, a bar of work per project, a timeline from morning to evening (work blocks in
+project colors, breaks in blue, a line at the current time), the day's sessions with their times
+(click one to continue it) and today's notes.
 
 - **Start:** click **Start** (or press Space on the Timer page). If no topic is selected, a
   searchable picker opens; type a few letters of any part of the path ("ser raid") and press
@@ -159,7 +166,7 @@ Breaks are recorded separately and are never counted as work. Turn automatic bre
 ## 6. Daily goal
 
 The goal bar fills second by second with **work** time only (breaks don't count). The default
-goal is 6 hours; change it in **Settings → Daily goal**. When you reach it, the bar turns gold
+goal is 6 hours; change it in **Settings → Daily goal**. When you reach it, the bar turns deep copper
 and a small celebration plays. Past the goal, Athlos shows how far over you are.
 
 ## 7. Menu bar and global shortcut
@@ -233,7 +240,7 @@ The widget hasn't received any data yet. Open Athlos; widgets update within a fe
 - **Tiles:** today, this week, your streak (days in a row you met the goal) and today's breaks.
 - **Work time chart:** stacked bars per project, **Daily** (14 days), **Weekly** (12 weeks) or
   **Monthly** (12 months).
-- **Monthly calendar:** each day is colored by how much you worked; gold days met the goal;
+- **Monthly calendar:** each day is colored by how much you worked; the strongest copper days met the goal;
   today has a blue outline. Use ‹ › to change months. Click a day to see the time per project.
 - **Work / break:** the ratio for the selected range.
 - **Project and topic totals:** today and all time, for every project and subtopic.
@@ -298,8 +305,8 @@ In **Settings → Backup**:
 
 ## 16. Appearance and language
 
-**Appearance.** Athlos has two themes taken from its icon: **Light** (warm marble ivory with
-gold) and **Dark** (night charcoal with gold). Choose **Settings → Appearance → System / Light /
+**Appearance.** Athlos has a light and a dark theme: neutral graphite with a copper accent (the
+icon's gold stays in the logo). Choose **Settings → Appearance → System / Light /
 Dark**; *System* follows your Mac. The change applies immediately to the main window, the menu
 bar popover, the desktop panel and alerts. The macOS widgets follow your Mac's appearance.
 

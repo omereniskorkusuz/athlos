@@ -112,26 +112,26 @@ struct TimerWidgetView: View {
                 Button(intent: ToggleTimerIntent()) {
                     Label("Start", systemImage: "play.fill").frame(maxWidth: .infinity)
                 }
-                .tint(WidgetPalette.gold)
+                .tint(WidgetPalette.accent)
             case .working:
                 Button(intent: ToggleTimerIntent()) {
                     Label(family == .systemSmall ? "" : "Pause", systemImage: "pause.fill").frame(maxWidth: .infinity)
                 }
-                .tint(WidgetPalette.gold)
+                .tint(WidgetPalette.accent)
                 Button(intent: StartBreakIntent()) { Image(systemName: "cup.and.saucer.fill") }
                 Button(intent: StopTimerIntent()) { Image(systemName: "stop.fill") }
             case .paused:
                 Button(intent: ToggleTimerIntent()) {
                     Label(family == .systemSmall ? "" : "Resume", systemImage: "play.fill").frame(maxWidth: .infinity)
                 }
-                .tint(WidgetPalette.gold)
+                .tint(WidgetPalette.accent)
                 Button(intent: StartBreakIntent()) { Image(systemName: "cup.and.saucer.fill") }
                 Button(intent: StopTimerIntent()) { Image(systemName: "stop.fill") }
             case .onBreak:
                 Button(intent: ToggleTimerIntent()) {
                     Label(family == .systemSmall ? "" : "End break", systemImage: "play.fill").frame(maxWidth: .infinity)
                 }
-                .tint(WidgetPalette.gold)
+                .tint(WidgetPalette.accent)
                 Button(intent: SkipBreakIntent()) { Image(systemName: "forward.fill") }
                 Button(intent: StopTimerIntent()) { Image(systemName: "stop.fill") }
             }
@@ -153,7 +153,7 @@ struct TimerWidgetView: View {
     private var phaseColor: Color {
         switch snap.phase {
         case .idle: .secondary
-        case .working: WidgetPalette.gold
+        case .working: WidgetPalette.accent
         case .paused: .secondary
         case .onBreak: WidgetPalette.rest
         }

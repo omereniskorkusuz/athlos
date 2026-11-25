@@ -134,7 +134,7 @@ struct DesktopWidgetView: View {
     private var phaseColor: Color {
         switch model.timer.phase {
         case .idle: .secondary
-        case .working: Theme.gold
+        case .working: Theme.brand
         case .paused: Theme.paused
         case .onBreak: Theme.rest
         }

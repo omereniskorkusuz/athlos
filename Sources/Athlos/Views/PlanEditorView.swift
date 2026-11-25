@@ -119,7 +119,7 @@ struct PlanEditorView: View {
             VStack(alignment: .leading, spacing: 3) {
                 ForEach(Array(schedule.enumerated()), id: \.offset) { _, item in
                     HStack(spacing: 8) {
-                        Circle().fill(item.isBreak ? Theme.rest : Theme.gold).frame(width: 7, height: 7)
+                        Circle().fill(item.isBreak ? Theme.rest : Theme.brand).frame(width: 7, height: 7)
                         Text("\(Fmt.time(item.start)) – \(Fmt.time(item.end))").monospacedDigit()
                         Text(item.isBreak ? "Break" : "Work (block \(item.block))")
                             .foregroundStyle(.secondary)
@@ -234,7 +234,7 @@ private struct BlockRow: View {
             Text("\(number)")
                 .font(.headline.monospacedDigit())
                 .frame(width: 26, height: 26)
-                .background(Theme.goldSoft, in: Circle())
+                .background(Theme.brandSoft, in: Circle())
             MinutesField(title: "Work", symbol: "hammer", value: $block.workMinutes, range: 1...600)
             Image(systemName: "arrow.right").foregroundStyle(.tertiary)
             MinutesField(title: "Break", symbol: "cup.and.saucer", value: $block.breakMinutes, range: 0...480)

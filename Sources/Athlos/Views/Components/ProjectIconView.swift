@@ -86,7 +86,7 @@ struct StatTile: View {
     let title: LocalizedStringKey
     let value: String
     var systemImage: String
-    var tint: Color = Theme.gold
+    var tint: Color = Theme.brand
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {

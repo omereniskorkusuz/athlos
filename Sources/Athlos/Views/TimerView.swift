@@ -20,30 +20,44 @@ struct TimerView: View {
     private var phase: TimerPhase { model.timer.phase }
 
     private var content: some View {
-        ScrollView {
-            VStack(spacing: 18) {
-                Spacer(minLength: 18)
-                header
-                clock
-                blockProgress
-                controls
-                    .padding(.top, 8)
-                planRow
-                VStack(spacing: 14) {
-                    HStack(alignment: .top, spacing: 14) {
-                        GoalRingCard()
-                        if phase != .idle { noteCard }
+        GeometryReader { geo in
+            HStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    ScrollView {
+                        VStack(spacing: 18) {
+                            Spacer(minLength: 20)
+                            header
+                            clock
+                            blockProgress
+                            controls
+                                .padding(.top, 8)
+                            planRow
+                            if phase == .idle {
+                                recentList.padding(.top, 18)
+                            }
+                            Spacer(minLength: 20)
+                        }
+                        .frame(maxWidth: 640)
+                        .padding(.horizontal, 32)
+                        .frame(maxWidth: .infinity)
+                        // Centered vertically when there is room, scrolls when there isn't.
+                        .frame(minHeight: max(0, geo.size.height - (phase == .idle ? 0 : 76)))
                     }
-                    .fixedSize(horizontal: false, vertical: true)
-                    if phase == .idle { recentList }
-                    sessionNotes
+                    if phase != .idle {
+                        noteField
+                            .frame(maxWidth: 640)
+                            .padding(.horizontal, 32)
+                            .padding(.bottom, 22)
+                    }
                 }
-                .padding(.top, 22)
+                .frame(maxWidth: .infinity)
+                // The Today panel needs room; in a narrow window the timer gets the whole width.
+                if geo.size.width >= 820 {
+                    TodayPanel()
+                        .transition(.move(edge: .trailing).combined(with: .opacity))
+                }
             }
-            .frame(maxWidth: 720)
-            .padding(.horizontal, 36)
-            .padding(.bottom, 32)
-            .frame(maxWidth: .infinity)
+            .animation(.smooth(duration: 0.25), value: geo.size.width >= 820)
         }
         .navigationTitle("Timer")
         // Space: start / pause (when a text field has focus, the field takes the space itself).
@@ -82,9 +96,9 @@ struct TimerView: View {
                             .textCase(.uppercase)
                             .contentTransition(.opacity)
                     }
-                    .foregroundStyle(phase == .working ? Theme.goldText : phase == .onBreak ? Theme.rest : Theme.inkSecondary)
+                    .foregroundStyle(phase == .working ? Theme.brandText : phase == .onBreak ? Theme.rest : Theme.inkSecondary)
                     .padding(.horizontal, 9).padding(.vertical, 3)
-                    .background(phase == .working ? Theme.goldSoft : Theme.track.opacity(0.6), in: Capsule())
+                    .background(phase == .working ? Theme.brandSoft : Theme.track.opacity(0.6), in: Capsule())
                     .padding(.leading, model.activeProject == nil ? 0 : 6)
                 }
                 .font(.system(size: 13))
@@ -116,7 +130,7 @@ struct TimerView: View {
             .accessibilityLabel(phase == .onBreak ? Text("\(Fmt.spoken(model.displaySeconds)) left in break") : Text("Elapsed \(Fmt.spoken(model.displaySeconds))"))
     }
 
-    /// The day's plan as hairline segments (one per work block); the current block fills with gold.
+    /// The day's plan as hairline segments (one per work block); the current block fills with copper.
     @ViewBuilder
     private var blockProgress: some View {
         let s = model.store.settings
@@ -136,7 +150,7 @@ struct TimerView: View {
                                 Capsule().fill(Theme.track)
                                 let fill: CGFloat = i < shown && phase != .idle ? 1 : (i == shown ? done : 0)
                                 if fill > 0 {
-                                    Capsule().fill(Theme.goldGradient).frame(width: max(6, geo.size.width * fill))
+                                    Capsule().fill(Theme.brandGradient).frame(width: max(6, geo.size.width * fill))
                                 }
                             }
                         }
@@ -148,7 +162,7 @@ struct TimerView: View {
                 .animation(.smooth(duration: 0.6), value: done)
                 HStack {
                     Text(phase == .idle
-                         ? String(localized: "\(blocks.count) blocks · \(preset.summary)")
+                         ? String(localized: "Block \(timer.currentBlockNumber) · \(Fmt.hm(timer.currentBlockWorkTarget))")
                          : String(localized: "Block \(timer.currentBlockNumber) · \(Fmt.hm(timer.workInBlock(now: model.now))) of \(Fmt.hm(timer.currentBlockWorkTarget))"))
                         .monospacedDigit()
                     Spacer()
@@ -190,7 +204,7 @@ struct TimerView: View {
     @ViewBuilder
     private func bigButton(_ title: LocalizedStringKey, symbol: String, prominent: Bool = false,
                            role: ButtonRole? = nil, action: @escaping () -> Void) -> some View {
-        let label = Label(title, systemImage: symbol).labelStyle(PillLabelStyle(iconColor: prominent ? Theme.goldBright : nil))
+        let label = Label(title, systemImage: symbol).labelStyle(PillLabelStyle())
         if prominent {
             Button(role: role, action: action) { label }.buttonStyle(PrimaryPillStyle(minWidth: 112))
         } else {
@@ -259,54 +273,26 @@ struct TimerView: View {
         }
     }
 
-    private var noteCard: some View {
-        VStack(alignment: .leading, spacing: 9) {
-            Text("Session notes").font(.system(size: 12.5)).foregroundStyle(Theme.inkSecondary)
-            HStack(alignment: .bottom, spacing: 8) {
-                TextField("Quick note… (⌘↩ to save)", text: $quickNote, axis: .vertical)
-                    .textFieldStyle(.plain)
-                    .lineLimit(1...4)
-                    .focused($noteFocused)
-                    .padding(.horizontal, 11).padding(.vertical, 8)
-                    .background(Theme.well, in: RoundedRectangle(cornerRadius: 9))
-                    .overlay(RoundedRectangle(cornerRadius: 9).strokeBorder(Theme.line))
-                // The ⌘↩ shortcut is bound to this button (works while the field has focus too).
-                Button("Save") { saveNote() }
-                    .keyboardShortcut(.return, modifiers: .command)
-                    .disabled(quickNote.trimmingCharacters(in: .whitespaces).isEmpty)
-            }
+    private var noteField: some View {
+        HStack(alignment: .bottom, spacing: 8) {
+            TextField("Quick note for this session… (⌘↩ to save)", text: $quickNote, axis: .vertical)
+                .textFieldStyle(.plain)
+                .lineLimit(1...4)
+                .focused($noteFocused)
+                .padding(.horizontal, 14).padding(.vertical, 11)
+                .background(Theme.card, in: RoundedRectangle(cornerRadius: 10))
+                .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(Theme.line))
+            // The ⌘↩ shortcut is bound to this button (works while the field has focus too).
+            Button("Save") { saveNote() }
+                .keyboardShortcut(.return, modifiers: .command)
+                .disabled(quickNote.trimmingCharacters(in: .whitespaces).isEmpty)
+                .padding(.bottom, 8)
         }
-        .padding(16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .athlosCard()
     }
 
     private func saveNote() {
         model.addQuickNote(quickNote)
         quickNote = ""
-    }
-
-    /// Notes taken in this session.
-    @ViewBuilder
-    private var sessionNotes: some View {
-        let rt = model.store.runtime
-        let sessionEntryIDs = Set(model.store.entries.filter { $0.sessionID != nil && $0.sessionID == rt.sessionID }.map(\.id))
-        let notes = model.store.notes.filter { $0.entryID.map(sessionEntryIDs.contains) ?? false }.sorted { $0.createdAt > $1.createdAt }
-        if !notes.isEmpty {
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Notes from this session").font(Theme.heading).foregroundStyle(Theme.ink)
-                ForEach(notes) { n in
-                    HStack(alignment: .firstTextBaseline, spacing: 10) {
-                        Text(Fmt.time(n.createdAt)).font(.caption.monospacedDigit()).foregroundStyle(Theme.inkSecondary)
-                        Text(n.text).foregroundStyle(Theme.ink).textSelection(.enabled)
-                        Spacer()
-                    }
-                }
-            }
-            .padding(16)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .athlosCard()
-        }
     }
 
     /// Recent topics while idle: start with one click.
@@ -336,7 +322,7 @@ struct TimerView: View {
     private var phaseColor: Color {
         switch phase {
         case .idle: Theme.inkTertiary
-        case .working: Theme.gold
+        case .working: Theme.brand
         case .paused: Theme.paused
         case .onBreak: Theme.rest
         }
@@ -361,7 +347,7 @@ struct RecentRow: View {
                 Text(model.store.pathString(projectID: projectID, topicID: topicID))
                     .lineLimit(1)
                 Spacer()
-                Image(systemName: "play.circle.fill").foregroundStyle(Theme.goldText)
+                Image(systemName: "play.circle.fill").foregroundStyle(Theme.brandText)
             }
             .foregroundStyle(Theme.ink)
             .padding(.vertical, compact ? 3 : 9)
@@ -401,7 +387,7 @@ struct WelcomeView: View {
             }
             .font(.callout)
             .foregroundStyle(Theme.ink)
-            .tint(Theme.goldText)
+            .tint(Theme.brandText)
             Button {
                 model.newProject()
             } label: {
@@ -452,7 +438,7 @@ struct BlockAdjustPopover: View {
     }
 }
 
-/// Icon + title for the pill buttons (the icon can be tinted separately, e.g. gold on the dark pill).
+/// Icon + title for the pill buttons (the icon can be tinted separately).
 struct PillLabelStyle: LabelStyle {
     var iconColor: Color?
 
@@ -466,56 +452,3 @@ struct PillLabelStyle: LabelStyle {
     }
 }
 
-/// Daily goal as a gold ring with the time in serif (Timer screen).
-struct GoalRingCard: View {
-    @Environment(AppModel.self) private var model
-
-    var body: some View {
-        let work = model.todayWork
-        let goal = max(model.dailyGoal, 1)
-        let progress = work / goal
-        let reached = progress >= 1
-        HStack(spacing: 16) {
-            ZStack {
-                Circle().stroke(Theme.track, lineWidth: 6)
-                Circle()
-                    .trim(from: 0, to: min(progress, 1))
-                    .stroke(AngularGradient(colors: [Theme.goldDeep, Theme.gold, Theme.goldBright], center: .center,
-                                            startAngle: .degrees(0), endAngle: .degrees(360 * max(min(progress, 1), 0.01))),
-                            style: StrokeStyle(lineWidth: 6, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                    .shadow(color: reached ? Theme.goldBright.opacity(0.6) : .clear, radius: 4)
-                Image(systemName: reached ? "checkmark.seal.fill" : "target")
-                    .font(.system(size: 17, weight: .medium))
-                    .foregroundStyle(Theme.goldText)
-            }
-            .frame(width: 60, height: 60)
-            .animation(.smooth(duration: 0.6), value: progress)
-            VStack(alignment: .leading, spacing: 3) {
-                HStack(spacing: 4) {
-                    Text("Daily goal")
-                    Text(verbatim: "· " + progress.formatted(.percent.precision(.fractionLength(0)).locale(Fmt.numberLocale)))
-                        .monospacedDigit()
-                }
-                .font(.system(size: 12.5))
-                .foregroundStyle(Theme.inkSecondary)
-                HStack(alignment: .firstTextBaseline, spacing: 5) {
-                    Text(Fmt.hm(work)).font(Theme.display(28)).foregroundStyle(Theme.ink)
-                        .contentTransition(.numericText())
-                    Text(verbatim: "/ " + Fmt.hm(goal)).font(.system(size: 14)).foregroundStyle(Theme.inkSecondary)
-                }
-                .monospacedDigit()
-                Text(reached ? String(localized: "\(Fmt.hm(work - goal)) over your goal") : String(localized: "\(Fmt.hm(goal - work)) to go"))
-                    .font(.system(size: 12))
-                    .foregroundStyle(reached ? Theme.goldText : Theme.inkSecondary)
-            }
-            Spacer(minLength: 0)
-        }
-        .padding(16)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .athlosCard()
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Daily goal")
-        .accessibilityValue(Text("\(Fmt.spoken(work)) / \(Fmt.spoken(goal))"))
-    }
-}

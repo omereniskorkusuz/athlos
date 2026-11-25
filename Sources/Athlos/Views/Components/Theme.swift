@@ -2,54 +2,60 @@ import SwiftUI
 import AppKit
 import AthlosCore
 
-/// Athlos "Marble" theme, taken from the app icon: warm marble ivory (light) or night charcoal (dark),
-/// gold from the icon's ring, serif (New York) display type like the icon's "A".
+/// Athlos "Copper" theme: neutral graphite surfaces, copper accent, steel-blue for breaks.
+/// Gold stays only in the logo (and its four-pointed star). Serif (New York) display type like the icon's "A".
 /// Every color adapts to the window's appearance, which Settings → Appearance can force.
 enum Theme {
     // MARK: Surfaces
     /// Page background.
-    static let canvas = Color(light: 0xF6F1E7, dark: 0x13110D)
-    /// Sidebar / secondary panels.
-    static let sidebar = Color(light: 0xECE4D4, dark: 0x1A1712)
+    static let canvas = Color(light: 0xF5F5F4, dark: 0x101012)
+    /// Icon rail (sidebar).
+    static let rail = Color(light: 0xEBEBEA, dark: 0x0B0B0C)
+    /// Side panels (Today panel, project tree).
+    static let panel = Color(light: 0xFFFFFF, dark: 0x141416)
     /// Cards and raised rows.
-    static let card = Color(light: 0xFFFCF6, dark: 0x1E1A14)
+    static let card = Color(light: 0xFFFFFF, dark: 0x19191C)
     /// Inputs and wells inside cards.
-    static let well = Color(light: 0xF8F3EA, dark: 0x16130F)
+    static let well = Color(light: 0xF8F8F7, dark: 0x121214)
     /// Hairline borders.
-    static let line = Color(light: 0xE2D7C2, dark: 0x2E281F)
+    static let line = Color(light: 0xE0DFDD, dark: 0x26262A)
     /// Empty part of bars and rings.
-    static let track = Color(light: 0xE6DCC8, dark: 0x2C261D)
+    static let track = Color(light: 0xE7E6E4, dark: 0x232327)
 
     // MARK: Ink
-    static let ink = Color(light: 0x1C1813, dark: 0xF3EBDC)
-    static let inkSecondary = Color(light: 0x6B6253, dark: 0xA99F8B)
-    static let inkTertiary = Color(light: 0x9A8E78, dark: 0x6E6656)
+    static let ink = Color(light: 0x18181B, dark: 0xEDEDEF)
+    static let inkSecondary = Color(light: 0x5F5F67, dark: 0x9A9AA3)
+    static let inkTertiary = Color(light: 0x8E8E96, dark: 0x66666E)
 
-    // MARK: Gold (from the icon ring #F2D58F → #D4AF6A → #A97F3C)
-    /// Gold fills: bars, rings, dots.
-    static let gold = Color(light: 0xC9A45C, dark: 0xD4AF6A)
-    static let goldBright = Color(hex: "#F2D58F")
-    static let goldDeep = Color(hex: "#A97F3C")
-    /// Gold text and icons (darker in light mode so it stays readable on ivory).
-    static let goldText = Color(light: 0x7A5A22, dark: 0xE3C27A)
-    /// Soft gold chip background.
-    static let goldSoft = Color(light: 0xF3E4C2, dark: 0x332A19)
+    // MARK: Brand (copper)
+    /// Copper fills: bars, rings, dots, the main button.
+    static let brand = Color(light: 0xA84B24, dark: 0xE07A4F)
+    /// Stronger copper: goal days in the calendar, the reached goal.
+    static let brandDeep = Color(light: 0x7E3518, dark: 0xF4A27A)
+    /// Lighter copper for gradients.
+    static let brandBright = Color(light: 0xD27A4E, dark: 0xF3B08C)
+    /// Copper text and icons.
+    static let brandText = Color(light: 0x9C4420, dark: 0xEE9470)
+    /// Soft copper chip / selected background.
+    static let brandSoft = Color(light: 0xF6E6DE, dark: 0x2A1A13)
     /// System accent (toggles, selections, prominent buttons with white text).
-    static let accent = Color(light: 0x8C6A2E, dark: 0xB88D46)
+    static let accent = Color(light: 0xA84B24, dark: 0xC8603A)
+    /// The logo's gold, used only for the star mark.
+    static let star = Color(hex: "#D4AF6A")
 
     // MARK: States
-    /// Break time: a calm sage that sits next to gold.
-    static let rest = Color(light: 0x5E8275, dark: 0x8DB5A6)
-    static let paused = Color(light: 0x9A8E78, dark: 0x8F8676)
-    static let danger = Color(light: 0xB3412F, dark: 0xE07A62)
+    /// Break time: steel blue.
+    static let rest = Color(light: 0x4E7C8A, dark: 0x7FB0BE)
+    static let paused = Color(light: 0x8E8E96, dark: 0x7A7A82)
+    static let danger = Color(light: 0xB3261E, dark: 0xF2867A)
 
-    // MARK: Primary button (dark ink pill in light mode, gold pill in dark mode)
-    static let primaryFill = Color(light: 0x1C1813, dark: 0xD8B46E)
-    static let onPrimary = Color(light: 0xFBF6EC, dark: 0x17120A)
+    // MARK: Primary button
+    static let primaryFill = brand
+    static let onPrimary = Color(light: 0xFFFFFF, dark: 0x170A04)
 
-    /// Ring / bar gradient.
-    static var goldGradient: LinearGradient {
-        LinearGradient(colors: [goldDeep, gold, goldBright], startPoint: .leading, endPoint: .trailing)
+    /// Bar / ring gradient.
+    static var brandGradient: LinearGradient {
+        LinearGradient(colors: [brand, brandBright], startPoint: .leading, endPoint: .trailing)
     }
 
     // MARK: Type

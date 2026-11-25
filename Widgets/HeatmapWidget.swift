@@ -9,7 +9,7 @@ struct HeatmapWidget: Widget {
             HeatmapWidgetView(entry: entry)
         }
         .configurationDisplayName("Work Calendar")
-        .description("This month's work heatmap: how much you worked each day, with goal days in gold.")
+        .description("This month's work heatmap: how much you worked each day, with goal days highlighted.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
@@ -59,9 +59,9 @@ struct HeatmapWidgetView: View {
             }
             .frame(maxWidth: 170)
             VStack(alignment: .leading, spacing: 8) {
-                stat("Today", WFmt.hm(snap.todayWork), color: WidgetPalette.gold)
-                stat("This month", WFmt.hm(monthTotal), color: WidgetPalette.goldDeep)
-                stat("Goal days", "\(goalDays)", color: WidgetPalette.gold)
+                stat("Today", WFmt.hm(snap.todayWork), color: WidgetPalette.accent)
+                stat("This month", WFmt.hm(monthTotal), color: WidgetPalette.goalColor)
+                stat("Goal days", "\(goalDays)", color: WidgetPalette.accent)
                 Spacer(minLength: 0)
                 goalBar
             }
@@ -104,7 +104,7 @@ struct HeatmapWidgetView: View {
             GeometryReader { g in
                 ZStack(alignment: .leading) {
                     Capsule().fill(.quaternary)
-                    Capsule().fill(p >= 1 ? AnyShapeStyle(WidgetPalette.gold) : AnyShapeStyle(WidgetPalette.gold.opacity(0.85)))
+                    Capsule().fill(p >= 1 ? AnyShapeStyle(WidgetPalette.accent) : AnyShapeStyle(WidgetPalette.accent.opacity(0.85)))
                         .frame(width: max(p > 0 ? 4 : 0, g.size.width * min(p, 1)))
                 }
             }

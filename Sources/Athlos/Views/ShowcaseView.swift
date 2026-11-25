@@ -128,13 +128,13 @@ struct ShowcaseDetailView: View {
                                 Text(p.name).font(Theme.display(32, weight: .bold))
                                 Text(Fmt.hoursCompact(store.projectSeconds(p.id, now: now)))
                                     .font(Theme.display(26)).foregroundStyle(p.color)
-                                Label("Finished", systemImage: "checkmark.seal.fill").foregroundStyle(Color.goalGold)
+                                Label("Finished", systemImage: "checkmark.seal.fill").foregroundStyle(Color.goalColor)
                             }
                         }
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: 10)], spacing: 10) {
-                            StatTile(title: "Started", value: Fmt.date(startDate), systemImage: "flag", tint: Theme.gold)
-                            StatTile(title: "End", value: Fmt.date(endDate), systemImage: "flag.checkered", tint: .goalGold)
-                            StatTile(title: "Total days", value: "\(days)", systemImage: "calendar", tint: Theme.goldDeep)
+                            StatTile(title: "Started", value: Fmt.date(startDate), systemImage: "flag", tint: Theme.brand)
+                            StatTile(title: "End", value: Fmt.date(endDate), systemImage: "flag.checkered", tint: .goalColor)
+                            StatTile(title: "Total days", value: "\(days)", systemImage: "calendar", tint: Theme.brandDeep)
                             StatTile(title: "Days worked", value: "\(activeDays)", systemImage: "calendar.badge.checkmark", tint: Theme.rest)
                         }
                         if !roots.isEmpty || untracked > 0 {

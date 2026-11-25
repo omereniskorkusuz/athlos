@@ -30,7 +30,7 @@ struct MenuBarView: View {
                         .contentTransition(.numericText())
                     Spacer()
                     Text(phaseText).font(.caption.weight(.semibold)).tracking(1.2)
-                        .foregroundStyle(model.timer.phase == .working ? Theme.goldText : model.timer.phase == .onBreak ? Theme.rest : Theme.inkSecondary)
+                        .foregroundStyle(model.timer.phase == .working ? Theme.brandText : model.timer.phase == .onBreak ? Theme.rest : Theme.inkSecondary)
                 }
             }
 

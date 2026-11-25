@@ -87,9 +87,9 @@ struct StatsSummaryView: View {
                 let weekWork = Stats.seconds(store.entries, kind: .work, in: weekInterval, now: now)
                 let streak = store.currentStreak(now: now, calendar: calendar)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 12)], spacing: 12) {
-                    StatTile(title: "Today", value: Fmt.hm(model.todayWork), systemImage: "sun.max", tint: Theme.gold)
-                    StatTile(title: "This week", value: Fmt.hm(weekWork), systemImage: "calendar", tint: Theme.goldDeep)
-                    StatTile(title: "Streak", value: String(localized: "\(streak) days"), systemImage: "flame.fill", tint: Theme.goldBright)
+                    StatTile(title: "Today", value: Fmt.hm(model.todayWork), systemImage: "sun.max", tint: Theme.brand)
+                    StatTile(title: "This week", value: Fmt.hm(weekWork), systemImage: "calendar", tint: Theme.brandDeep)
+                    StatTile(title: "Streak", value: String(localized: "\(streak) days"), systemImage: "flame.fill", tint: Theme.brandBright)
                     StatTile(title: "Breaks today", value: Fmt.hm(store.todayBreakSeconds(now: now)), systemImage: "cup.and.saucer", tint: Theme.rest)
                 }
 
@@ -200,7 +200,7 @@ struct RatioView: View {
             Text("Work / break").font(Theme.heading)
             Chart {
                 SectorMark(angle: .value("Work", work), innerRadius: .ratio(0.62), angularInset: 2)
-                    .foregroundStyle(Theme.gold).cornerRadius(4)
+                    .foregroundStyle(Theme.brand).cornerRadius(4)
                 SectorMark(angle: .value("Break", max(rest, work == 0 ? 1 : 0)), innerRadius: .ratio(0.62), angularInset: 2)
                     .foregroundStyle(Theme.rest).cornerRadius(4)
             }
@@ -211,7 +211,7 @@ struct RatioView: View {
                 }
             }
             .frame(height: 150)
-            Label("Work: \(Fmt.hm(work))", systemImage: "circle.fill").foregroundStyle(Theme.goldText).font(.callout)
+            Label("Work: \(Fmt.hm(work))", systemImage: "circle.fill").foregroundStyle(Theme.brandText).font(.callout)
             Label("Break: \(Fmt.hm(rest))", systemImage: "circle.fill").foregroundStyle(Theme.rest).font(.callout)
             Text(range == .daily ? "Range: last 14 days" : range == .weekly ? "Range: last 12 weeks" : "Range: last 12 months")
                 .font(.caption).foregroundStyle(.secondary)
@@ -245,7 +245,7 @@ struct ProjectTotalsTable: View {
                     HStack {
                         ProjectIconView(project: p, size: 20, images: store.images)
                         Text(p.name).fontWeight(.semibold)
-                        if p.status == .completed { Image(systemName: "checkmark.seal.fill").foregroundStyle(Color.goalGold).font(.caption) }
+                        if p.status == .completed { Image(systemName: "checkmark.seal.fill").foregroundStyle(Color.goalColor).font(.caption) }
                         Spacer()
                         Text(Fmt.hm(store.projectSeconds(p.id, in: today, now: now))).frame(width: 80, alignment: .trailing)
                         Text(Fmt.hm(store.projectSeconds(p.id, now: now))).fontWeight(.semibold).frame(width: 90, alignment: .trailing)

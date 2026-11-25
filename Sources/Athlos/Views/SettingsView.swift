@@ -35,7 +35,7 @@ struct SettingsView: View {
             } header: {
                 Text("Appearance")
             } footer: {
-                Text("Light is the marble theme, Dark the night theme. “System” follows your Mac.")
+                Text("Choose a light or dark window; “System” follows your Mac.")
                     .font(.caption).foregroundStyle(.secondary)
             }
 
@@ -196,7 +196,7 @@ private struct PresetRow: View {
     var body: some View {
         HStack(spacing: 10) {
             Image(systemName: isActive ? "checkmark.circle.fill" : (preset.isCustom ? "slider.horizontal.3" : "circle"))
-                .foregroundStyle(isActive ? Theme.goldText : .secondary)
+                .foregroundStyle(isActive ? Theme.brandText : .secondary)
             VStack(alignment: .leading, spacing: 2) {
                 Text(preset.isCustom ? "Custom plan (no template)" : preset.name).fontWeight(isActive ? .semibold : .regular)
                 Text(preset.summary + " · " + (preset.blocks.count > 1 ? (preset.afterLast == .cycle ? String(localized: "cycles") : String(localized: "then last block")) : String(localized: "repeats")))
