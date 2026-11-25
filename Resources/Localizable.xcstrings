@@ -1,0 +1,3314 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "": {
+      "shouldTranslate": false
+    },
+    "%@ / %@": {
+      "shouldTranslate": false
+    },
+    "%@ left in break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molanın bitmesine %@"
+          }
+        }
+      }
+    },
+    "%@ over your goal ✨": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hedefin %@ üzerindesin ✨"
+          }
+        }
+      }
+    },
+    "%@ work · %@ break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ çalışma · %@ mola"
+          }
+        }
+      }
+    },
+    "%@ worked in this block · break in %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu blokta %@ çalıştın · molaya %@"
+          }
+        }
+      }
+    },
+    "%@ · %@": {
+      "shouldTranslate": false
+    },
+    "%@ – %@": {
+      "shouldTranslate": false
+    },
+    "%@ — an entry that started on %@ was never closed. Continue, including the time since the app closed?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — %@ tarihinde başlayan kayıt kapatılmamış. Uygulama kapandığından beri geçen süre dahil devam edilsin mi?"
+          }
+        }
+      }
+    },
+    "%@, %@": {
+      "shouldTranslate": false
+    },
+    "%@, total %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, toplam %@"
+          }
+        }
+      }
+    },
+    "%@: %@": {
+      "shouldTranslate": false
+    },
+    "%lld": {},
+    "%lld days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld gün"
+          }
+        }
+      }
+    },
+    "%lld projects · %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld proje · %@"
+          }
+        }
+      }
+    },
+    "+%lld min": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%lld dk"
+          }
+        }
+      }
+    },
+    "00:00": {
+      "shouldTranslate": false
+    },
+    "00:00:00": {
+      "shouldTranslate": false
+    },
+    "30 days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 gün"
+          }
+        }
+      }
+    },
+    "7 days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 gün"
+          }
+        }
+      }
+    },
+    "A running timer is kept: after the restart choose “Continue”.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışan sayaç korunur: yeniden açılınca “Devam et”i seç."
+          }
+        }
+      }
+    },
+    "Active plan": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif plan"
+          }
+        }
+      }
+    },
+    "Active topic: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif başlık: %@"
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekle"
+          }
+        }
+      }
+    },
+    "Add a project you finished before, with its logo and time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daha önce bitirdiğin bir projeyi logosu ve süresiyle ekle"
+          }
+        }
+      }
+    },
+    "Add another after creating": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oluşturduktan sonra bir tane daha ekle"
+          }
+        }
+      }
+    },
+    "Add block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blok ekle"
+          }
+        }
+      }
+    },
+    "Add past project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçmiş proje ekle"
+          }
+        }
+      }
+    },
+    "Add subtopic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt başlık ekle"
+          }
+        }
+      }
+    },
+    "Added manually": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elle eklendi"
+          }
+        }
+      }
+    },
+    "Adjust this block's work and break time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu bloğun çalışma ve mola süresini ayarla"
+          }
+        }
+      }
+    },
+    "After the last block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Son bloktan sonra"
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hepsi"
+          }
+        }
+      }
+    },
+    "All projects": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm projeler"
+          }
+        }
+      }
+    },
+    "All subtopics, time entries and notes are permanently deleted. This can't be undone (except from automatic backups).": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm alt başlıklar, zaman kayıtları ve notlar kalıcı olarak silinir. Bu işlem geri alınamaz (otomatik yedekler hariç)."
+          }
+        }
+      }
+    },
+    "All time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tümü"
+          }
+        }
+      }
+    },
+    "Applies to this block only; the template doesn't change.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca bu blok için geçerlidir; şablon değişmez."
+          }
+        }
+      }
+    },
+    "Are you still working?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hâlâ çalışıyor musun?"
+          }
+        }
+      }
+    },
+    "Ask “What did you do?” when stopping": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oturumu bitirirken “Ne yaptın?” notu sor"
+          }
+        }
+      }
+    },
+    "Athlos": {},
+    "Athlos Timer": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Athlos Sayaç"
+          }
+        }
+      }
+    },
+    "Athlos timer %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Athlos sayaç %@"
+          }
+        }
+      }
+    },
+    "Automatic breaks": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otomatik molalar"
+          }
+        }
+      }
+    },
+    "BREAK": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MOLA"
+          }
+        }
+      }
+    },
+    "Backup": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yedekleme"
+          }
+        }
+      }
+    },
+    "Backup from %@: %lld projects, %lld entries. Your current data will be replaced (a safety backup is made first).": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ tarihli yedek: %lld proje, %lld kayıt. Mevcut veri değiştirilecek (öncesinde güvenlik yedeği alınır)."
+          }
+        }
+      }
+    },
+    "Block %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blok %@"
+          }
+        }
+      }
+    },
+    "Block %lld options": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blok %lld seçenekleri"
+          }
+        }
+      }
+    },
+    "Block %lld · %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blok %lld · %@"
+          }
+        }
+      }
+    },
+    "Block %lld · %lld/%lld min": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blok %lld · %lld/%lld dk"
+          }
+        }
+      }
+    },
+    "Blocks run in order: in each block you work first, then take a break. If you stop and start again later the same day, you continue from the block you were on; the next day starts from the first block.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bloklar sırayla uygulanır: her blokta önce çalışma, sonra mola. Gün içinde oturumu bitirip yeniden başlasan da kaldığın bloktan devam eder; ertesi gün ilk bloktan başlar."
+          }
+        }
+      }
+    },
+    "Break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola"
+          }
+        }
+      }
+    },
+    "Break ends at %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molanın bitişi: %@"
+          }
+        }
+      }
+    },
+    "Break in %@ · Block %lld": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molaya %@ · Blok %lld"
+          }
+        }
+      }
+    },
+    "Break is over": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola bitti"
+          }
+        }
+      }
+    },
+    "Break plan": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola planı"
+          }
+        }
+      }
+    },
+    "Break reminders and a 6-hour daily goal": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola hatırlatıcıları ve 6 saatlik günlük hedef"
+          }
+        }
+      }
+    },
+    "Break: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola: %@"
+          }
+        }
+      }
+    },
+    "Breaks on": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molalar açık"
+          }
+        }
+      }
+    },
+    "Breaks today": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bugün mola"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İptal"
+          }
+        }
+      }
+    },
+    "Choose Topic…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık Seç…"
+          }
+        }
+      }
+    },
+    "Choose a project or subtopic in the tree on the left.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soldaki ağaçtan bir proje ya da alt başlık seç."
+          }
+        }
+      }
+    },
+    "Choose a topic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir başlık seç"
+          }
+        }
+      }
+    },
+    "Choose file…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosya seç…"
+          }
+        }
+      }
+    },
+    "Choose topic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık seç"
+          }
+        }
+      }
+    },
+    "Choose topic (⌘K)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık seç (⌘K)"
+          }
+        }
+      }
+    },
+    "Choose topic…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık seç…"
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapat"
+          }
+        }
+      }
+    },
+    "Color": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renk"
+          }
+        }
+      }
+    },
+    "Color %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renk %@"
+          }
+        }
+      }
+    },
+    "Completed": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlananlar"
+          }
+        }
+      }
+    },
+    "Completed Work": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlanan Çalışmalar"
+          }
+        }
+      }
+    },
+    "Completion date": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlanma tarihi"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devam et"
+          }
+        }
+      }
+    },
+    "Could not copy the image: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görsel kopyalanamadı: %@"
+          }
+        }
+      }
+    },
+    "Create": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oluştur"
+          }
+        }
+      }
+    },
+    "Create a new project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni proje oluştur"
+          }
+        }
+      }
+    },
+    "Create a project and add as many subtopics under it as you like.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni bir proje oluştur, altına sınırsız alt başlık ekle."
+          }
+        }
+      }
+    },
+    "Create your first project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İlk projeni oluştur"
+          }
+        }
+      }
+    },
+    "Create your projects and subtopics, start the timer, and let Athlos keep track of your daily goal, breaks and statistics. All data stays on this Mac.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projelerini ve alt başlıklarını oluştur, sayacı başlat; Athlos günlük hedefini, molalarını ve istatistiklerini senin için tutsun. Tüm veriler yalnızca bu Mac'te saklanır."
+          }
+        }
+      }
+    },
+    "Created %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oluşturma: %@"
+          }
+        }
+      }
+    },
+    "Custom plan": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel düzen"
+          }
+        }
+      }
+    },
+    "Custom plan (no template)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel düzen (şablonsuz)"
+          }
+        }
+      }
+    },
+    "Daily": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günlük"
+          }
+        }
+      }
+    },
+    "Daily automatic backup (last 7 days kept)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günlük otomatik yedek (son 7 gün tutulur)"
+          }
+        }
+      }
+    },
+    "Daily goal": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günlük hedef"
+          }
+        }
+      }
+    },
+    "Daily goal reached! 🎉": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günlük hedef tamam! 🎉"
+          }
+        }
+      }
+    },
+    "Data folder": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veri klasörü"
+          }
+        }
+      }
+    },
+    "Date": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tarih"
+          }
+        }
+      }
+    },
+    "Days worked": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışılan gün"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sil"
+          }
+        }
+      }
+    },
+    "Delete %lld entries?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld kayıt silinsin mi?"
+          }
+        }
+      }
+    },
+    "Delete note": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notu sil"
+          }
+        }
+      }
+    },
+    "Delete project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projeyi sil"
+          }
+        }
+      }
+    },
+    "Delete project and all its entries": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projeyi ve tüm kayıtlarını sil"
+          }
+        }
+      }
+    },
+    "Delete project “%@”?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” projesi silinsin mi?"
+          }
+        }
+      }
+    },
+    "Delete template": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şablonu sil"
+          }
+        }
+      }
+    },
+    "Delete template “%@”?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” şablonu silinsin mi?"
+          }
+        }
+      }
+    },
+    "Delete “%@”?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” silinsin mi?"
+          }
+        }
+      }
+    },
+    "Deleted time is removed from your statistics.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silinen süre istatistiklerden düşer."
+          }
+        }
+      }
+    },
+    "Delete…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sil…"
+          }
+        }
+      }
+    },
+    "Desktop Widget": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masaüstü Widget'ı"
+          }
+        }
+      }
+    },
+    "Desktop widget": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masaüstü widget'ı"
+          }
+        }
+      }
+    },
+    "Desktop widget (timer + start/stop)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masaüstü widget'ı (sayaç + başlat/durdur)"
+          }
+        }
+      }
+    },
+    "Details": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detay"
+          }
+        }
+      }
+    },
+    "Discard idle time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boşta kalan süreyi at"
+          }
+        }
+      }
+    },
+    "Drag to reorder · Right-click › Move… to move elsewhere": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sürükle-bırak: sırala · Sağ tık › Taşı…: başka yere taşı"
+          }
+        }
+      }
+    },
+    "Drop a logo here": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logoyu buraya sürükle-bırak"
+          }
+        }
+      }
+    },
+    "Duration": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Süre"
+          }
+        }
+      }
+    },
+    "Each template is a series of work/break blocks applied in order (e.g. 75/15 → 60/10 → 50/60). To work without a template, edit the “Custom plan”.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her şablon sırayla uygulanan çalışma/mola bloklarından oluşur (ör. 75/15 → 60/10 → 50/60). Şablonsuz çalışmak için “Özel düzen”i düzenle."
+          }
+        }
+      }
+    },
+    "Edit": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düzenle"
+          }
+        }
+      }
+    },
+    "Edit active plan…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif planı düzenle…"
+          }
+        }
+      }
+    },
+    "Edit template": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şablonu düzenle"
+          }
+        }
+      }
+    },
+    "Edit…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düzenle…"
+          }
+        }
+      }
+    },
+    "Elapsed %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçen süre %@"
+          }
+        }
+      }
+    },
+    "Emoji": {},
+    "End": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bitiş"
+          }
+        }
+      }
+    },
+    "End at last activity (%@)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Son aktif anda bitir (%@)"
+          }
+        }
+      }
+    },
+    "End break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molayı bitir"
+          }
+        }
+      }
+    },
+    "End must be after start": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bitiş başlangıçtan sonra olmalı"
+          }
+        }
+      }
+    },
+    "English is the default. Turkish is included; “System” follows your Mac's language.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varsayılan dil İngilizce. Türkçe dahildir; “Sistem” Mac'inin dilini izler."
+          }
+        }
+      }
+    },
+    "Entries": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kayıt"
+          }
+        }
+      }
+    },
+    "Export as JSON…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JSON olarak dışa aktar…"
+          }
+        }
+      }
+    },
+    "Exported: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dışa aktarıldı: %@"
+          }
+        }
+      }
+    },
+    "Finished": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlandı"
+          }
+        }
+      }
+    },
+    "General / entered manually": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genel / elle girilen"
+          }
+        }
+      }
+    },
+    "Global shortcut: ⌃⌥Space (start / pause)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Global kısayol: ⌃⌥Space (başlat / duraklat)"
+          }
+        }
+      }
+    },
+    "Goal": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hedef"
+          }
+        }
+      }
+    },
+    "Goal days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hedef tutan gün"
+          }
+        }
+      }
+    },
+    "Goal days: %lld": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hedef tutan gün: %lld"
+          }
+        }
+      }
+    },
+    "Goal time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hedef süre"
+          }
+        }
+      }
+    },
+    "Hide widget": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widget'ı gizle"
+          }
+        }
+      }
+    },
+    "History": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçmiş kayıtlar"
+          }
+        }
+      }
+    },
+    "Icon": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İkon"
+          }
+        }
+      }
+    },
+    "Idle and sleep": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boşta kalma ve uyku"
+          }
+        }
+      }
+    },
+    "Idle detection": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boşta kalma tespiti"
+          }
+        }
+      }
+    },
+    "Image / Logo": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görsel / Logo"
+          }
+        }
+      }
+    },
+    "Import this backup?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yedek içe aktarılsın mı?"
+          }
+        }
+      }
+    },
+    "Imported: %lld projects, %lld entries.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İçe aktarıldı: %lld proje, %lld kayıt."
+          }
+        }
+      }
+    },
+    "Import…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İçe aktar…"
+          }
+        }
+      }
+    },
+    "In progress": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu an çalışılıyor"
+          }
+        }
+      }
+    },
+    "Inactivity time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hareketsizlik süresi"
+          }
+        }
+      }
+    },
+    "Include subtopic notes": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt başlıkların notlarını da göster"
+          }
+        }
+      }
+    },
+    "Includes %@ of past time entered manually.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplama elle girilen %@ geçmiş süre dahil."
+          }
+        }
+      }
+    },
+    "Keep counting": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saymaya devam et"
+          }
+        }
+      }
+    },
+    "Keep the time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Süreyi tut"
+          }
+        }
+      }
+    },
+    "Language": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dil"
+          }
+        }
+      }
+    },
+    "Large (with calendar)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Büyük (takvimli)"
+          }
+        }
+      }
+    },
+    "Last automatic backup": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Son otomatik yedek"
+          }
+        }
+      }
+    },
+    "Later": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonra"
+          }
+        }
+      }
+    },
+    "Less": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az"
+          }
+        }
+      }
+    },
+    "Let's continue": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devam edelim"
+          }
+        }
+      }
+    },
+    "Linked to a time entry": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir zaman kaydına bağlı"
+          }
+        }
+      }
+    },
+    "Location: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konum: %@"
+          }
+        }
+      }
+    },
+    "Manual entry": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manuel kayıt"
+          }
+        }
+      }
+    },
+    "Mark as completed": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlandı olarak işaretle"
+          }
+        }
+      }
+    },
+    "Mark as completed (moves to Completed)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlandı olarak işaretle (Vitrin'e taşınır)"
+          }
+        }
+      }
+    },
+    "Medium": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orta"
+          }
+        }
+      }
+    },
+    "Monthly": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aylık"
+          }
+        }
+      }
+    },
+    "Monthly work calendar": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aylık çalışma takvimi"
+          }
+        }
+      }
+    },
+    "Move": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taşı"
+          }
+        }
+      }
+    },
+    "Move back to active": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktife geri al"
+          }
+        }
+      }
+    },
+    "Move down": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aşağı taşı"
+          }
+        }
+      }
+    },
+    "Move up": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yukarı taşı"
+          }
+        }
+      }
+    },
+    "Move up one level": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir üst seviyeye çıkar"
+          }
+        }
+      }
+    },
+    "Move “%@” where?": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” nereye taşınsın?"
+          }
+        }
+      }
+    },
+    "Move…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taşı…"
+          }
+        }
+      }
+    },
+    "New Project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni Proje"
+          }
+        }
+      }
+    },
+    "New Subtopic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni Alt Başlık"
+          }
+        }
+      }
+    },
+    "New note… (⌘↩)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni not… (⌘↩)"
+          }
+        }
+      }
+    },
+    "New project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni proje"
+          }
+        }
+      }
+    },
+    "New project (⌘N)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni proje (⌘N)"
+          }
+        }
+      }
+    },
+    "New subtopic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni alt başlık"
+          }
+        }
+      }
+    },
+    "New subtopic (⇧⌘N)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni alt başlık (⇧⌘N)"
+          }
+        }
+      }
+    },
+    "New template": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni şablon"
+          }
+        }
+      }
+    },
+    "New template…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni şablon…"
+          }
+        }
+      }
+    },
+    "Next break in %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonraki molaya %@"
+          }
+        }
+      }
+    },
+    "Next month": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonraki ay"
+          }
+        }
+      }
+    },
+    "No active projects": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif proje yok"
+          }
+        }
+      }
+    },
+    "No completed projects yet": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz tamamlanan proje yok"
+          }
+        }
+      }
+    },
+    "No entries": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kayıt yok"
+          }
+        }
+      }
+    },
+    "No entries in this range.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu aralıkta kayıt yok."
+          }
+        }
+      }
+    },
+    "No keyboard or mouse activity for %lld minutes.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dakikadır klavye/fare hareketi yok."
+          }
+        }
+      }
+    },
+    "No keyboard or mouse activity since %@.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ saatinden beri klavye/fare hareketi yok."
+          }
+        }
+      }
+    },
+    "No notes yet.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz not yok."
+          }
+        }
+      }
+    },
+    "No results": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonuç yok"
+          }
+        }
+      }
+    },
+    "No time entries match these filters. You can add work you forgot to track by hand.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu filtrelerle eşleşen zaman kaydı bulunamadı. Unuttuğun bir çalışmayı elle ekleyebilirsin."
+          }
+        }
+      }
+    },
+    "No work recorded on this day.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu gün çalışma kaydı yok."
+          }
+        }
+      }
+    },
+    "Note saved": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not kaydedildi"
+          }
+        }
+      }
+    },
+    "Notes": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notlar"
+          }
+        }
+      }
+    },
+    "Notes from this session": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu oturumun notları"
+          }
+        }
+      }
+    },
+    "Notifications": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bildirimler"
+          }
+        }
+      }
+    },
+    "On sleep / screen lock": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyku / ekran kilidinde"
+          }
+        }
+      }
+    },
+    "Open Athlos": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Athlos'u aç"
+          }
+        }
+      }
+    },
+    "Open Athlos once to see your data.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verileri görmek için Athlos'u bir kez aç."
+          }
+        }
+      }
+    },
+    "Open backups folder": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yedek klasörünü aç"
+          }
+        }
+      }
+    },
+    "Other shortcuts": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diğer kısayollar"
+          }
+        }
+      }
+    },
+    "Overview": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özet"
+          }
+        }
+      }
+    },
+    "PAUSED": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DURAKLADI"
+          }
+        }
+      }
+    },
+    "Past time outside the app": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama dışı geçmiş süre"
+          }
+        }
+      }
+    },
+    "Pause": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duraklat"
+          }
+        }
+      }
+    },
+    "Pause the timer": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sayacı otomatik duraklat"
+          }
+        }
+      }
+    },
+    "Paused": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duraklatıldı"
+          }
+        }
+      }
+    },
+    "Paused because of sleep": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyku nedeniyle duraklatıldı"
+          }
+        }
+      }
+    },
+    "Period": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dönem"
+          }
+        }
+      }
+    },
+    "Previous month": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önceki ay"
+          }
+        }
+      }
+    },
+    "Project": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proje"
+          }
+        }
+      }
+    },
+    "Project and topic totals": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proje ve başlık toplamları"
+          }
+        }
+      }
+    },
+    "Project name": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proje adı"
+          }
+        }
+      }
+    },
+    "Project › Topic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proje › Başlık"
+          }
+        }
+      }
+    },
+    "Project → subtopic → subtopic… an unlimited tree": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proje → alt başlık → alt başlık… sınırsız ağaç"
+          }
+        }
+      }
+    },
+    "Projects": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projeler"
+          }
+        }
+      }
+    },
+    "Projects you mark as “Completed” are shown here. You can also add projects you finished before, with their logo and the time you spent.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir projeyi “Tamamlandı” olarak işaretlediğinde burada sergilenir. Daha önce bitirdiğin projeleri logosu ve harcadığın süreyle ekleyebilirsin."
+          }
+        }
+      }
+    },
+    "Quick control from the menu bar and ⌃⌥Space": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğundan ve ⌃⌥Space ile hızlı kontrol"
+          }
+        }
+      }
+    },
+    "Quick note… (⌘↩ to save)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hızlı not… (⌘↩ ile kaydet)"
+          }
+        }
+      }
+    },
+    "Quit": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çık"
+          }
+        }
+      }
+    },
+    "READY": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HAZIR"
+          }
+        }
+      }
+    },
+    "Range": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aralık"
+          }
+        }
+      }
+    },
+    "Range: last 12 months": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aralık: son 12 ay"
+          }
+        }
+      }
+    },
+    "Range: last 12 weeks": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aralık: son 12 hafta"
+          }
+        }
+      }
+    },
+    "Range: last 14 days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aralık: son 14 gün"
+          }
+        }
+      }
+    },
+    "Ready": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hazır"
+          }
+        }
+      }
+    },
+    "Ready to continue? 💪": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devam edelim mi? 💪"
+          }
+        }
+      }
+    },
+    "Recent": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Son kullanılanlar"
+          }
+        }
+      }
+    },
+    "Rename": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden adlandır"
+          }
+        }
+      }
+    },
+    "Rename…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden adlandır…"
+          }
+        }
+      }
+    },
+    "Repeat the last block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Son bloğu tekrarla"
+          }
+        }
+      }
+    },
+    "Replace current data": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mevcut verinin yerine koy"
+          }
+        }
+      }
+    },
+    "Restart Athlos to change the language": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dili değiştirmek için Athlos'u yeniden başlat"
+          }
+        }
+      }
+    },
+    "Restart now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi yeniden başlat"
+          }
+        }
+      }
+    },
+    "Restart plan from first block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Planı ilk bloktan başlat"
+          }
+        }
+      }
+    },
+    "Resume": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devam"
+          }
+        }
+      }
+    },
+    "SF Symbol": {},
+    "Sample day, starting at:": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Örnek akış, başlangıç:"
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet"
+          }
+        }
+      }
+    },
+    "Save and stop": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet ve bitir"
+          }
+        }
+      }
+    },
+    "Save and use": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet ve kullan"
+          }
+        }
+      }
+    },
+    "Save as template": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şablon olarak kaydet"
+          }
+        }
+      }
+    },
+    "Save as template…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şablon olarak kaydet…"
+          }
+        }
+      }
+    },
+    "Search projects or topics…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proje veya başlık ara…"
+          }
+        }
+      }
+    },
+    "See your work time live; start, pause, take a break and stop.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma süreni canlı gör; başlat, duraklat, mola ver ve bitir."
+          }
+        }
+      }
+    },
+    "Session open": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oturum açık"
+          }
+        }
+      }
+    },
+    "Session: %@ work · %@ break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oturum: %@ çalışma · %@ mola"
+          }
+        }
+      }
+    },
+    "Set up custom plan…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel düzeni ayarla…"
+          }
+        }
+      }
+    },
+    "Set up today's durations however you like; no need to save a template.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bugün için istediğin süreleri kur; şablon olarak kaydetmen gerekmez."
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar"
+          }
+        }
+      }
+    },
+    "Shortcuts and notifications": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kısayol ve bildirimler"
+          }
+        }
+      }
+    },
+    "Size": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boyut"
+          }
+        }
+      }
+    },
+    "Skip": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atla"
+          }
+        }
+      }
+    },
+    "Skip Break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molayı Atla"
+          }
+        }
+      }
+    },
+    "Skip block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bloğu atla"
+          }
+        }
+      }
+    },
+    "Skip break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molayı atla"
+          }
+        }
+      }
+    },
+    "Skip this block's break and move to the next block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu bloğun molasını atla, sonraki bloğa geç"
+          }
+        }
+      }
+    },
+    "Small": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Küçük"
+          }
+        }
+      }
+    },
+    "Snooze %lld min": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dk ertele"
+          }
+        }
+      }
+    },
+    "Snooze 5 min": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 dk ertele"
+          }
+        }
+      }
+    },
+    "Snooze Break 5 min": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molayı 5 dk Ertele"
+          }
+        }
+      }
+    },
+    "Snooze break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molayı ertele"
+          }
+        }
+      }
+    },
+    "Snooze length": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erteleme süresi"
+          }
+        }
+      }
+    },
+    "Space start/pause · ⌘K choose topic · ⇧⌘E stop · ⇧⌘B break · ⌘N project · ⇧⌘N subtopic · ⌘1–5 pages": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Space başlat/duraklat · ⌘K başlık seç · ⇧⌘E bitir · ⇧⌘B mola · ⌘N proje · ⇧⌘N alt başlık · ⌘1–5 sayfalar"
+          }
+        }
+      }
+    },
+    "Start": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlat"
+          }
+        }
+      }
+    },
+    "Start / Resume": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlat / Devam"
+          }
+        }
+      }
+    },
+    "Start / pause timer": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sayacı başlat / duraklat"
+          }
+        }
+      }
+    },
+    "Start Break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola Başlat"
+          }
+        }
+      }
+    },
+    "Start break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola başlat"
+          }
+        }
+      }
+    },
+    "Start break now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Molayı şimdi başlat"
+          }
+        }
+      }
+    },
+    "Start date": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlangıç tarihi"
+          }
+        }
+      }
+    },
+    "Start over": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baştan başla"
+          }
+        }
+      }
+    },
+    "Start: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlat: %@"
+          }
+        }
+      }
+    },
+    "Started": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlangıç"
+          }
+        }
+      }
+    },
+    "Statistics": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İstatistikler"
+          }
+        }
+      }
+    },
+    "Status and history": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durum ve geçmiş"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bitir"
+          }
+        }
+      }
+    },
+    "Stop now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi bitir"
+          }
+        }
+      }
+    },
+    "Stop session": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oturumu bitir"
+          }
+        }
+      }
+    },
+    "Stop without note": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notsuz bitir"
+          }
+        }
+      }
+    },
+    "Streak": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seri"
+          }
+        }
+      }
+    },
+    "Subtopic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt başlık"
+          }
+        }
+      }
+    },
+    "Subtopics": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt başlıklar"
+          }
+        }
+      }
+    },
+    "Switch": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçiş yap"
+          }
+        }
+      }
+    },
+    "Symbol name": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembol adı"
+          }
+        }
+      }
+    },
+    "System": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem"
+          }
+        }
+      }
+    },
+    "Template name": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şablon adı"
+          }
+        }
+      }
+    },
+    "Templates": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şablonlar"
+          }
+        }
+      }
+    },
+    "The bar fills with work time only; breaks don't count.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bar yalnızca çalışma süresiyle dolar; molalar sayılmaz."
+          }
+        }
+      }
+    },
+    "The widget sits on your desktop behind your windows; drag it by its title to move it. Right-click for size and hide options.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widget masaüstünde, pencerelerin arkasında durur; başlığından sürükleyerek taşıyabilirsin. Sağ tıkla boyut ve gizleme seçenekleri açılır."
+          }
+        }
+      }
+    },
+    "This month": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu ay"
+          }
+        }
+      }
+    },
+    "This month %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu ay %@"
+          }
+        }
+      }
+    },
+    "This month %@ · goal met on %lld days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu ay %@ · hedef %lld gün"
+          }
+        }
+      }
+    },
+    "This month's work heatmap: how much you worked each day, with goal days in gold.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu ayın çalışma ısı haritası: her gün ne kadar çalıştın, hedefi tutturduğun günler altın renkte."
+          }
+        }
+      }
+    },
+    "This plan is added to your templates under this name and becomes active.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu düzen adıyla şablon listesine eklenir ve aktif yapılır."
+          }
+        }
+      }
+    },
+    "This range overlaps %lld entries (e.g. %@–%@, %@). If you save, this time is counted twice.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu aralık %lld kayıtla çakışıyor (ör. %@–%@, %@). Kaydedersen bu süre iki kez sayılır."
+          }
+        }
+      }
+    },
+    "This topic and its %lld subtopics will be deleted. Time entries and notes move to the parent topic.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu başlık ve %lld alt başlığı silinecek. Zaman kayıtları ve notlar üst başlığa aktarılır."
+          }
+        }
+      }
+    },
+    "This week": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu hafta"
+          }
+        }
+      }
+    },
+    "Time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat"
+          }
+        }
+      }
+    },
+    "Time by subtopic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt başlık dağılımı"
+          }
+        }
+      }
+    },
+    "Time entries and notes move to the parent topic.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaman kayıtları ve notlar üst başlığa aktarılır."
+          }
+        }
+      }
+    },
+    "Time for a break ☕️": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mola zamanı ☕️"
+          }
+        }
+      }
+    },
+    "Timer": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sayaç"
+          }
+        }
+      }
+    },
+    "Timer ready": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sayaç hazır"
+          }
+        }
+      }
+    },
+    "Tip: press ⌃⌘Space to open the emoji picker.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İpucu: ⌃⌘Space ile emoji seçiciyi aç."
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bugün"
+          }
+        }
+      }
+    },
+    "Topic": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık"
+          }
+        }
+      }
+    },
+    "Topic name": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık adı"
+          }
+        }
+      }
+    },
+    "Total": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplam"
+          }
+        }
+      }
+    },
+    "Total (including subtopics)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplam (alt başlıklar dahil)"
+          }
+        }
+      }
+    },
+    "Total days": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplam gün"
+          }
+        }
+      }
+    },
+    "Total: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplam: %@"
+          }
+        }
+      }
+    },
+    "Type": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tür"
+          }
+        }
+      }
+    },
+    "Unfinished session": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yarım kalan oturum var"
+          }
+        }
+      }
+    },
+    "Use": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullan"
+          }
+        }
+      }
+    },
+    "View": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görünüm"
+          }
+        }
+      }
+    },
+    "WORKING": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ÇALIŞIYOR"
+          }
+        }
+      }
+    },
+    "Weekly": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Haftalık"
+          }
+        }
+      }
+    },
+    "Welcome to Athlos": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Athlos'a hoş geldin"
+          }
+        }
+      }
+    },
+    "What did you do? (optional)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne yaptın? (isteğe bağlı)"
+          }
+        }
+      }
+    },
+    "When adding a project you finished earlier, enter the total time you spent on it here (e.g. 19 h); it is added to the totals.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önceden bitirdiğin bir projeyi eklerken harcadığın toplam süreyi buraya gir (ör. 19 sa); toplamlara eklenir."
+          }
+        }
+      }
+    },
+    "Widget size": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widget boyutu"
+          }
+        }
+      }
+    },
+    "Work": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma"
+          }
+        }
+      }
+    },
+    "Work (block %lld)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma (blok %lld)"
+          }
+        }
+      }
+    },
+    "Work / break": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma / mola"
+          }
+        }
+      }
+    },
+    "Work Calendar": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma Takvimi"
+          }
+        }
+      }
+    },
+    "Work time": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma süresi"
+          }
+        }
+      }
+    },
+    "Work: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma: %@"
+          }
+        }
+      }
+    },
+    "Working": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışıyor"
+          }
+        }
+      }
+    },
+    "You worked %@ today. Great job!": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bugün %@ çalıştın. Harika iş!"
+          }
+        }
+      }
+    },
+    "You worked %lld min. A %lld-min break has started.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dk çalıştın. %lld dk'lık mola başladı."
+          }
+        }
+      }
+    },
+    "break in %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "molaya %@"
+          }
+        }
+      }
+    },
+    "cycles": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "döngü"
+          }
+        }
+      }
+    },
+    "e.g. Kenshell": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ör. Kenshell"
+          }
+        }
+      }
+    },
+    "e.g. My workday": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ör. Kens'in günü"
+          }
+        }
+      }
+    },
+    "h": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sa"
+          }
+        }
+      }
+    },
+    "hours": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "saat"
+          }
+        }
+      }
+    },
+    "min": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dk"
+          }
+        }
+      }
+    },
+    "repeats": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tekrar"
+          }
+        }
+      }
+    },
+    "then last block": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sonra son blok"
+          }
+        }
+      }
+    },
+    "work": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "çalışma"
+          }
+        }
+      }
+    },
+    "↩ choose · ↑↓ move · double-click to start": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "↩ seç · ↑↓ gezin · çift tık başlat"
+          }
+        }
+      }
+    },
+    "🎉 Daily goal reached!": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🎉 Günlük hedef tamam!"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,93 @@
+# Athlos Xcode project (generated with xcodegen):
+#   xcodegen generate
+#   xcodebuild -project Athlos.xcodeproj -scheme Athlos -configuration Release build
+# Targets: AthlosCore (framework) · Athlos (app) · AthlosWidgets (macOS widget extension) · tests
+name: Athlos
+options:
+  bundleIdPrefix: app.athlos
+  deploymentTarget:
+    macOS: "15.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    ARCHS: arm64
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"          # local signing (Sign to Run Locally)
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: NO
+    DEAD_CODE_STRIPPING: YES
+targets:
+  AthlosCore:
+    type: framework
+    platform: macOS
+    sources: [Sources/AthlosCore]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.athlos.AthlosCore
+        GENERATE_INFOPLIST_FILE: YES
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+
+  Athlos:
+    type: application
+    platform: macOS
+    sources:
+      - Sources/Athlos
+      - path: Resources/AppIcon.icns
+        buildPhase: resources
+      - path: Resources/Localizable.xcstrings
+        buildPhase: resources
+    dependencies:
+      - target: AthlosCore
+        embed: true
+      - target: AthlosWidgets
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.athlos.Athlos
+        PRODUCT_NAME: Athlos
+        INFOPLIST_FILE: Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Config/Athlos.entitlements
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+
+  AthlosWidgets:
+    type: app-extension
+    platform: macOS
+    sources:
+      - Widgets
+      - path: Resources/Localizable.xcstrings
+        buildPhase: resources
+    dependencies:
+      - target: AthlosCore
+        embed: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.athlos.Athlos.Widgets
+        PRODUCT_NAME: AthlosWidgets
+        INFOPLIST_FILE: Resources/AthlosWidgets-Info.plist
+        CODE_SIGN_ENTITLEMENTS: Config/AthlosWidgets.entitlements
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks"
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+
+  AthlosCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [Tests/AthlosCoreTests]
+    dependencies:
+      - target: AthlosCore
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  Athlos:
+    build:
+      targets:
+        Athlos: all
+        AthlosWidgets: all
+    test:
+      targets: [AthlosCoreTests]
