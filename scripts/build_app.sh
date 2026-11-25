@@ -25,6 +25,11 @@ if xcodebuild -version >/dev/null 2>&1; then
   ditto "$DERIVED/Build/Products/$CONFIG/Athlos.app" "$APP"
   xattr -cr "$APP"
   codesign --verify --deep --strict "$APP"
+  # Only the installed copy (/Applications) should provide the widgets. Build copies register their
+  # widget extension too, and macOS may then keep desktop widgets on an older build. Unregister them.
+  for copy in "$DERIVED/Build/Products/$CONFIG/Athlos.app" "$APP"; do
+    pluginkit -r "$copy/Contents/PlugIns/AthlosWidgets.appex" 2>/dev/null || true
+  done
   echo "✔ Done (with widgets): $(pwd)/$APP"
   exit 0
 fi

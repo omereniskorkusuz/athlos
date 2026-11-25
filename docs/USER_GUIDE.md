@@ -361,6 +361,12 @@ Settings, or quit the other app.
 
 **A widget button does nothing.** Athlos has to be running (in the menu bar is enough).
 
+**After an update the widgets still look old** (old colors, an old date). macOS keeps the
+widgets on the copy it registered first. Make sure there is only one Athlos.app (the one in
+**Applications**; delete other copies, for example in Downloads), open Athlos once, then remove
+the widgets from the desktop and add them again (**Edit Widgets…**). Logging out and back in
+also refreshes them.
+
 **I deleted something by mistake.** Use **Import…** with a file from **Open backups folder**
 (daily backups) or your last export.
 
