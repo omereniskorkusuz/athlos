@@ -5,7 +5,7 @@ import AthlosCore
 /// Statistics: summary tiles, stacked chart per project, heatmap, ratio, tree table + history.
 struct StatsView: View {
     enum Tab: String, CaseIterable { case summary, history }
-    @State private var tab: Tab = .summary
+    @State private var tab: Tab = DemoData.statsTab == "history" ? .history : .summary
 
     var body: some View {
         Group {
@@ -87,16 +87,16 @@ struct StatsSummaryView: View {
                 let weekWork = Stats.seconds(store.entries, kind: .work, in: weekInterval, now: now)
                 let streak = store.currentStreak(now: now, calendar: calendar)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 12)], spacing: 12) {
-                    StatTile(title: "Today", value: Fmt.hm(model.todayWork), systemImage: "sun.max", tint: .green)
-                    StatTile(title: "This week", value: Fmt.hm(weekWork), systemImage: "calendar", tint: .blue)
-                    StatTile(title: "Streak", value: String(localized: "\(streak) days"), systemImage: "flame.fill", tint: .orange)
-                    StatTile(title: "Breaks today", value: Fmt.hm(store.todayBreakSeconds(now: now)), systemImage: "cup.and.saucer", tint: .brown)
+                    StatTile(title: "Today", value: Fmt.hm(model.todayWork), systemImage: "sun.max", tint: Theme.gold)
+                    StatTile(title: "This week", value: Fmt.hm(weekWork), systemImage: "calendar", tint: Theme.goldDeep)
+                    StatTile(title: "Streak", value: String(localized: "\(streak) days"), systemImage: "flame.fill", tint: Theme.goldBright)
+                    StatTile(title: "Breaks today", value: Fmt.hm(store.todayBreakSeconds(now: now)), systemImage: "cup.and.saucer", tint: Theme.rest)
                 }
 
                 // Stacked chart per project
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
-                        Text("Work time").font(.title3.bold())
+                        Text("Work time").font(Theme.heading)
                         Spacer()
                         Picker("Range", selection: $range) {
                             ForEach(ChartRange.allCases) { Text($0.title).tag($0) }
@@ -145,6 +145,7 @@ struct StatsSummaryView: View {
             }
             .padding(24)
         }
+        .defaultScrollAnchor(DemoData.statsTab == "calendar" ? UnitPoint(x: 0.5, y: 0.62) : .top)
     }
 
     /// Bars (period × project) for the selected range.
@@ -196,22 +197,22 @@ struct RatioView: View {
         let total = max(work + rest, 1)
 
         VStack(alignment: .leading, spacing: 10) {
-            Text("Work / break").font(.title3.bold())
+            Text("Work / break").font(Theme.heading)
             Chart {
                 SectorMark(angle: .value("Work", work), innerRadius: .ratio(0.62), angularInset: 2)
-                    .foregroundStyle(Color.accentColor).cornerRadius(4)
+                    .foregroundStyle(Theme.gold).cornerRadius(4)
                 SectorMark(angle: .value("Break", max(rest, work == 0 ? 1 : 0)), innerRadius: .ratio(0.62), angularInset: 2)
-                    .foregroundStyle(Color.orange).cornerRadius(4)
+                    .foregroundStyle(Theme.rest).cornerRadius(4)
             }
             .chartBackground { _ in
                 VStack {
-                    Text(verbatim: (work / total).formatted(.percent.precision(.fractionLength(0)).locale(Fmt.numberLocale))).font(.title2.bold())
+                    Text(verbatim: (work / total).formatted(.percent.precision(.fractionLength(0)).locale(Fmt.numberLocale))).font(Theme.display(22))
                     Text("work").font(.caption).foregroundStyle(.secondary)
                 }
             }
             .frame(height: 150)
-            Label("Work: \(Fmt.hm(work))", systemImage: "circle.fill").foregroundStyle(Color.accentColor).font(.callout)
-            Label("Break: \(Fmt.hm(rest))", systemImage: "circle.fill").foregroundStyle(.orange).font(.callout)
+            Label("Work: \(Fmt.hm(work))", systemImage: "circle.fill").foregroundStyle(Theme.goldText).font(.callout)
+            Label("Break: \(Fmt.hm(rest))", systemImage: "circle.fill").foregroundStyle(Theme.rest).font(.callout)
             Text(range == .daily ? "Range: last 14 days" : range == .weekly ? "Range: last 12 weeks" : "Range: last 12 months")
                 .font(.caption).foregroundStyle(.secondary)
         }
@@ -229,7 +230,7 @@ struct ProjectTotalsTable: View {
         let today = Stats.dayInterval(now)
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("Project and topic totals").font(.title3.bold())
+                Text("Project and topic totals").font(Theme.heading)
                 Spacer()
                 Text("Today").frame(width: 80, alignment: .trailing)
                 Text("Total").frame(width: 90, alignment: .trailing)
@@ -285,6 +286,6 @@ extension View {
     func card() -> some View {
         padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.background.secondary, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .athlosCard(radius: 14)
     }
 }

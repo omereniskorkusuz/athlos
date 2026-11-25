@@ -16,15 +16,15 @@ struct ProjectDetailView: View {
                     HStack(spacing: 16) {
                         ProjectIconView(project: p, size: 64, images: model.store.images)
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(p.name).font(.largeTitle.bold())
-                            Text("Created \(Fmt.date(p.createdAt))").foregroundStyle(.secondary)
+                            Text(p.name).font(Theme.display(32, weight: .bold))
+                            Text("Created \(Fmt.date(p.createdAt))").foregroundStyle(Theme.inkSecondary)
                         }
                         Spacer()
                     }
                     HStack(spacing: 12) {
-                        StatTile(title: "Today", value: Fmt.hm(model.store.projectSeconds(p.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: .green)
+                        StatTile(title: "Today", value: Fmt.hm(model.store.projectSeconds(p.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: Theme.gold)
                         StatTile(title: "Total", value: Fmt.hm(model.store.projectSeconds(p.id, now: now)), systemImage: "sum", tint: p.color)
-                        StatTile(title: "Subtopic", value: "\(model.store.topics.filter { $0.projectID == p.id }.count)", systemImage: "list.bullet.indent", tint: .secondary)
+                        StatTile(title: "Subtopic", value: "\(model.store.topics.filter { $0.projectID == p.id }.count)", systemImage: "list.bullet.indent", tint: Theme.inkTertiary)
                     }
                     if p.manualSeconds > 0 {
                         Label("Includes \(Fmt.hm(p.manualSeconds)) of past time entered manually.", systemImage: "info.circle")
@@ -97,25 +97,25 @@ struct TopicDetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     // Path (breadcrumb) – clickable
                     HStack(spacing: 4) {
-                        Button(p.name) { model.treeSelection = .project(p.id) }.buttonStyle(.link)
+                        Button(p.name) { model.treeSelection = .project(p.id) }.buttonStyle(.plain).foregroundStyle(Theme.goldText)
                         ForEach(model.store.ancestry(of: t.id).dropLast()) { a in
                             Image(systemName: "chevron.right").font(.caption2).foregroundStyle(.tertiary)
-                            Button(a.name) { model.treeSelection = .topic(a.id) }.buttonStyle(.link)
+                            Button(a.name) { model.treeSelection = .topic(a.id) }.buttonStyle(.plain).foregroundStyle(Theme.goldText)
                         }
                     }
                     .font(.callout)
-                    Text(t.name).font(.largeTitle.bold())
+                    Text(t.name).font(Theme.display(32, weight: .bold))
 
                     HStack(spacing: 12) {
-                        StatTile(title: "Today", value: Fmt.hm(model.store.topicSeconds(t.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: .green)
+                        StatTile(title: "Today", value: Fmt.hm(model.store.topicSeconds(t.id, in: Stats.dayInterval(now), now: now)), systemImage: "sun.max", tint: Theme.gold)
                         StatTile(title: "Total", value: Fmt.hm(totals[t.id] ?? 0), systemImage: "sum", tint: p.color)
-                        StatTile(title: "Entries", value: "\(model.store.entries.filter { $0.topicID == t.id && $0.kind == .work }.count)", systemImage: "list.number", tint: .secondary)
+                        StatTile(title: "Entries", value: "\(model.store.entries.filter { $0.topicID == t.id && $0.kind == .work }.count)", systemImage: "list.number", tint: Theme.inkTertiary)
                     }
 
                     HStack {
                         if isActive {
                             Label(model.timer.phase == .working ? "In progress" : "Session open", systemImage: "record.circle")
-                                .foregroundStyle(.green)
+                                .foregroundStyle(Theme.goldText)
                         } else {
                             Button { model.start(projectID: p.id, topicID: t.id) } label: { Label("Start", systemImage: "play.fill") }
                                 .buttonStyle(.borderedProminent)
@@ -166,7 +166,7 @@ struct BreakdownList: View {
                         Text(Fmt.hm(item.seconds)).monospacedDigit().foregroundStyle(.secondary).frame(width: 80, alignment: .trailing)
                     }
                     .padding(.vertical, 6).padding(.horizontal, 10)
-                    .background(.background.secondary, in: RoundedRectangle(cornerRadius: 8))
+                    .athlosCard(radius: 8)
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
@@ -242,6 +242,6 @@ struct NoteRow: View {
         }
         .padding(10)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 8))
+        .athlosCard(radius: 8)
     }
 }

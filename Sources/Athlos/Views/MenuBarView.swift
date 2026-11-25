@@ -15,6 +15,8 @@ struct MenuBarView: View {
                 HStack {
                     if let p = model.activeProject {
                         ProjectIconView(project: p, size: 18, images: model.store.images)
+                    } else {
+                        AthlosLogo(size: 20)
                     }
                     Text(phase == .idle ? String(localized: "Timer ready") : model.activePath.joined(separator: " › "))
                         .font(.headline)
@@ -22,11 +24,13 @@ struct MenuBarView: View {
                 }
                 HStack(alignment: .firstTextBaseline) {
                     Text(Fmt.clock(model.displaySeconds))
-                        .font(.system(size: 34, weight: .light, design: .rounded))
+                        .font(.system(size: 36, weight: .thin))
+                        .foregroundStyle(Theme.ink)
                         .monospacedDigit()
                         .contentTransition(.numericText())
                     Spacer()
-                    Text(phaseText).font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                    Text(phaseText).font(.caption.weight(.semibold)).tracking(1.2)
+                        .foregroundStyle(model.timer.phase == .working ? Theme.goldText : model.timer.phase == .onBreak ? Theme.rest : Theme.inkSecondary)
                 }
             }
 
@@ -87,6 +91,7 @@ struct MenuBarView: View {
         }
         .padding(14)
         .frame(width: 330)
+        .background(Theme.canvas)
     }
 
     private var phaseText: LocalizedStringKey {

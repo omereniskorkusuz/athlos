@@ -133,7 +133,7 @@ struct ProjectEditorView: View {
         }
         .frame(maxWidth: .infinity, minHeight: 170)
         .background(RoundedRectangle(cornerRadius: 12).strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [6]))
-            .foregroundStyle(dropTargeted ? Color.accentColor : Color.secondary.opacity(0.4)))
+            .foregroundStyle(dropTargeted ? Theme.gold : Color.secondary.opacity(0.4)))
         .dropDestination(for: URL.self) { urls, _ in
             guard let url = urls.first else { return false }
             importImage(url)

@@ -64,7 +64,7 @@ struct DesktopWidgetView: View {
         .padding(14)
         .frame(width: size.width)
         .fixedSize(horizontal: false, vertical: true)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .athlosCard(radius: 22)
         .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).strokeBorder(.white.opacity(0.08)))
         .contextMenu { menu }
     }
@@ -134,9 +134,9 @@ struct DesktopWidgetView: View {
     private var phaseColor: Color {
         switch model.timer.phase {
         case .idle: .secondary
-        case .working: .green
-        case .paused: .yellow
-        case .onBreak: .orange
+        case .working: Theme.gold
+        case .paused: Theme.paused
+        case .onBreak: Theme.rest
         }
     }
 }

@@ -17,12 +17,22 @@
         }
       }
     },
-    "%@ over your goal ✨": {
+    "%@ over your goal": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hedefin %@ üzerindesin ✨"
+            "value": "Hedefin %@ üzerindesin"
+          }
+        }
+      }
+    },
+    "%@ to go": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ kaldı"
           }
         }
       }
@@ -80,6 +90,16 @@
       "shouldTranslate": false
     },
     "%lld": {},
+    "%lld blocks · %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld blok · %@"
+          }
+        }
+      }
+    },
     "%lld days": {
       "localizations": {
         "tr": {
@@ -296,6 +316,16 @@
         }
       }
     },
+    "Appearance": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görünüm"
+          }
+        }
+      }
+    },
     "Applies to this block only; the template doesn't change.": {
       "localizations": {
         "tr": {
@@ -413,6 +443,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Blok %lld · %@"
+          }
+        }
+      }
+    },
+    "Block %lld · %@ of %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blok %lld · %@ / %@"
           }
         }
       }
@@ -797,12 +837,32 @@
         }
       }
     },
+    "Daily goal reached!": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günlük hedef tamam!"
+          }
+        }
+      }
+    },
     "Daily goal reached! 🎉": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Günlük hedef tamam! 🎉"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koyu"
           }
         }
       }
@@ -1444,6 +1504,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Devam edelim"
+          }
+        }
+      }
+    },
+    "Light": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık"
+          }
+        }
+      }
+    },
+    "Light is the marble theme, Dark the night theme. “System” follows your Mac.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık mermer tema, Koyu gece temasıdır. “Sistem” Mac'inin görünümünü izler."
           }
         }
       }
@@ -2325,6 +2405,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Çalışma süreni canlı gör; başlat, duraklat, mola ver ve bitir."
+          }
+        }
+      }
+    },
+    "Session notes": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oturum notları"
           }
         }
       }
@@ -3295,16 +3385,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "↩ seç · ↑↓ gezin · çift tık başlat"
-          }
-        }
-      }
-    },
-    "🎉 Daily goal reached!": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "🎉 Günlük hedef tamam!"
           }
         }
       }

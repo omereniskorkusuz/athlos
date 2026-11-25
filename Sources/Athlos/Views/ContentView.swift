@@ -9,23 +9,8 @@ struct ContentView: View {
     var body: some View {
         @Bindable var model = model
         NavigationSplitView {
-            List(selection: $model.sidebarSelection) {
-                Section {
-                    // id: \.self → the rows' selection ID is the Route itself.
-                    // (Route is Identifiable, so the default ID was its String rawValue; the List could not turn that
-                    // into the Route? selection and sent nil → the sidebar couldn't be clicked.)
-                    ForEach(Route.allCases, id: \.self) { r in
-                        Label(r.title, systemImage: r.symbol)
-                            .badge(badge(for: r))
-                            .tag(r)
-                    }
-                }
-            }
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200, max: 260)
-            .safeAreaInset(edge: .bottom) {
-                SidebarStatus()
-                    .padding(10)
-            }
+            Sidebar()
+                .navigationSplitViewColumnWidth(min: 200, ideal: 224, max: 280)
         } detail: {
             Group {
                 switch model.route {
@@ -36,14 +21,19 @@ struct ContentView: View {
                 case .settings: SettingsView()
                 }
             }
+            .athlosPage()
+            .toolbarBackground(Theme.canvas, for: .windowToolbar)
         }
+        .tint(Theme.accent)
         .overlay(alignment: .top) {
             if let toast = model.toast {
                 Text(toast)
                     .font(.callout.weight(.medium))
                     .padding(.horizontal, 14).padding(.vertical, 8)
-                    .background(.regularMaterial, in: Capsule())
-                    .shadow(radius: 4, y: 2)
+                    .foregroundStyle(Theme.ink)
+                    .background(Theme.card, in: Capsule())
+                    .overlay(Capsule().strokeBorder(Theme.line))
+                    .shadow(color: .black.opacity(0.12), radius: 6, y: 2)
                     .padding(.top, 12)
                     .transition(.move(edge: .top).combined(with: .opacity))
             }
@@ -52,11 +42,11 @@ struct ContentView: View {
             if model.celebrating { CelebrationView().allowsHitTesting(false) }
         }
         // Shared sheets
-        .sheet(isPresented: $model.showQuickPicker) { QuickPickerView() }
-        .sheet(isPresented: $model.showStopSheet) { StopSessionSheet() }
-        .sheet(item: $model.projectEditor) { req in ProjectEditorView(request: req) }
-        .sheet(item: $model.newTopicRequest) { req in NewTopicSheet(request: req) }
-        .sheet(item: $model.planEditor) { req in PlanEditorView(request: req) }
+        .sheet(isPresented: $model.showQuickPicker) { QuickPickerView().athlosPage().tint(Theme.accent) }
+        .sheet(isPresented: $model.showStopSheet) { StopSessionSheet().athlosPage().tint(Theme.accent) }
+        .sheet(item: $model.projectEditor) { req in ProjectEditorView(request: req).athlosPage().tint(Theme.accent) }
+        .sheet(item: $model.newTopicRequest) { req in NewTopicSheet(request: req).athlosPage().tint(Theme.accent) }
+        .sheet(item: $model.planEditor) { req in PlanEditorView(request: req).athlosPage().tint(Theme.accent) }
         // Unfinished session
         .alert("Unfinished session", isPresented: Binding(get: { model.recovery != nil }, set: { _ in })) {
             Button("Continue") { model.resolveRecovery(.continue) }
@@ -83,13 +73,88 @@ struct ContentView: View {
         }
     }
 
-    private func badge(for r: Route) -> Text? {
-        switch r {
-        case .showcase:
-            let c = model.store.projects(status: .completed).count
-            return c > 0 ? Text("\(c)") : nil
-        default: return nil
+}
+
+/// Sidebar: logo + wordmark, page buttons, live status at the bottom.
+/// Plain buttons instead of a List so the marble style (and the selected pill) is fully ours.
+private struct Sidebar: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            AthlosBrand(logoSize: 36)
+                .padding(.horizontal, 16)
+                .padding(.top, 6)
+                .padding(.bottom, 18)
+            ScrollView {
+                VStack(spacing: 3) {
+                    ForEach(Route.allCases, id: \.self) { r in
+                        SidebarRow(route: r, selected: model.route == r, badge: badge(for: r)) { model.route = r }
+                    }
+                }
+                .padding(.horizontal, 10)
+            }
+            .scrollIndicators(.never)
+            SidebarStatus()
+                .padding(12)
+                .athlosCard(radius: 12)
+                .padding(10)
         }
+        .background(Theme.sidebar)
+        .toolbarBackground(Theme.sidebar, for: .windowToolbar)
+    }
+
+    private func badge(for r: Route) -> Int? {
+        guard r == .showcase else { return nil }
+        let c = model.store.projects(status: .completed).count
+        return c > 0 ? c : nil
+    }
+}
+
+private struct SidebarRow: View {
+    let route: Route
+    let selected: Bool
+    let badge: Int?
+    let action: () -> Void
+    @State private var hovering = false
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 10) {
+                Image(systemName: route.symbol)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(selected ? Theme.goldText : Theme.inkSecondary)
+                    .frame(width: 20)
+                Text(route.title)
+                    .font(.system(size: 13.5, weight: selected ? .semibold : .regular))
+                    .foregroundStyle(selected ? Theme.ink : Theme.ink.opacity(0.82))
+                    .lineLimit(1)
+                    .fixedSize()
+                Spacer(minLength: 4)
+                if let badge {
+                    Text(verbatim: "\(badge)")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundStyle(Theme.goldText)
+                        .padding(.horizontal, 7).padding(.vertical, 1)
+                        .background(Theme.goldSoft, in: Capsule())
+                }
+            }
+            .padding(.horizontal, 10)
+            .frame(height: 34)
+            .background {
+                if selected {
+                    RoundedRectangle(cornerRadius: 9, style: .continuous).fill(Theme.card)
+                        .overlay(RoundedRectangle(cornerRadius: 9, style: .continuous).strokeBorder(Theme.line))
+                        .shadow(color: .black.opacity(0.06), radius: 1.5, y: 1)
+                } else if hovering {
+                    RoundedRectangle(cornerRadius: 9, style: .continuous).fill(Theme.ink.opacity(0.05))
+                }
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .onHover { hovering = $0 }
+        .accessibilityAddTraits(selected ? .isSelected : [])
     }
 }
 
@@ -102,15 +167,16 @@ private struct SidebarStatus: View {
             if model.timer.phase != .idle {
                 HStack(spacing: 6) {
                     Circle()
-                        .fill(model.timer.phase == .working ? Color.green : model.timer.phase == .onBreak ? .orange : .secondary)
+                        .fill(model.timer.phase == .working ? Theme.gold : model.timer.phase == .onBreak ? Theme.rest : Theme.paused)
                         .frame(width: 7, height: 7)
                     Text(model.activePath.last ?? "")
-                        .font(.caption.weight(.medium))
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(Theme.ink)
                         .lineLimit(1)
                     Spacer()
                     Text(model.menuBarTitle.dropFirst(2))
                         .font(.caption.monospacedDigit())
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.inkSecondary)
                 }
             }
             GoalBarView(compact: true)
@@ -126,7 +192,7 @@ struct StopSessionSheet: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Stop session").font(.title2.bold())
+            Text("Stop session").font(Theme.display(24))
             Text("\(model.activePath.joined(separator: " › ")) · \(Fmt.hm(model.sessionWork))")
                 .foregroundStyle(.secondary)
             Text("What did you do? (optional)").font(.headline)
@@ -135,7 +201,8 @@ struct StopSessionSheet: View {
                 .frame(minHeight: 90)
                 .scrollContentBackground(.hidden)
                 .padding(6)
-                .background(.background.secondary, in: RoundedRectangle(cornerRadius: 8))
+                .background(Theme.well, in: RoundedRectangle(cornerRadius: 10))
+                .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(Theme.line))
                 .focused($focused)
             HStack {
                 Button("Cancel", role: .cancel) { model.showStopSheet = false }
@@ -148,6 +215,7 @@ struct StopSessionSheet: View {
             }
         }
         .padding(20)
+        .background(Theme.canvas)
         .frame(width: 440)
         .onAppear { focused = true }
     }
@@ -157,7 +225,7 @@ struct StopSessionSheet: View {
 struct CelebrationView: View {
     @State private var animate = false
     private let pieces: [(x: CGFloat, delay: Double, color: Color, symbol: String)] = (0..<36).map { i in
-        let colors: [Color] = [.goalGold, .orange, .pink, .green, .blue, .purple]
+        let colors: [Color] = [Theme.goldBright, Theme.gold, Theme.goldDeep, Theme.rest, Color(hex: "#FBF6EC"), Theme.goldBright]
         let symbols = ["star.fill", "sparkle", "circle.fill", "seal.fill"]
         return (CGFloat.random(in: 0.05...0.95), Double.random(in: 0...0.6), colors[i % colors.count], symbols[i % symbols.count])
     }
@@ -175,10 +243,15 @@ struct CelebrationView: View {
                         .opacity(animate ? 0 : 1)
                         .animation(.easeOut(duration: 2.6).delay(p.delay), value: animate)
                 }
-                Text("🎉 Daily goal reached!")
-                    .font(.largeTitle.bold())
-                    .padding(24)
-                    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20))
+                VStack(spacing: 12) {
+                    AthlosLogo(size: 72)
+                    Text("Daily goal reached!")
+                        .font(Theme.display(30, weight: .bold))
+                        .foregroundStyle(Theme.ink)
+                }
+                .padding(28)
+                .athlosCard(radius: 24)
+                .shadow(color: .black.opacity(0.18), radius: 20, y: 8)
                     .scaleEffect(animate ? 1 : 0.6)
                     .opacity(animate ? 1 : 0)
                     .animation(.spring(duration: 0.5, bounce: 0.4), value: animate)

@@ -86,21 +86,24 @@ struct StatTile: View {
     let title: LocalizedStringKey
     let value: String
     var systemImage: String
-    var tint: Color = .accentColor
+    var tint: Color = Theme.gold
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Label(title, systemImage: systemImage)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .font(.system(size: 12.5))
+                .foregroundStyle(Theme.inkSecondary)
             Text(value)
-                .font(.title2.weight(.semibold))
+                .font(Theme.display(24))
+                .foregroundStyle(Theme.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
                 .monospacedDigit()
                 .contentTransition(.numericText())
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(14)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .athlosCard(radius: 14)
         .overlay(alignment: .topTrailing) {
             Circle().fill(tint).frame(width: 8, height: 8).padding(12)
         }

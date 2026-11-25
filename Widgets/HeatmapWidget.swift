@@ -59,8 +59,8 @@ struct HeatmapWidgetView: View {
             }
             .frame(maxWidth: 170)
             VStack(alignment: .leading, spacing: 8) {
-                stat("Today", WFmt.hm(snap.todayWork), color: .green)
-                stat("This month", WFmt.hm(monthTotal), color: .blue)
+                stat("Today", WFmt.hm(snap.todayWork), color: WidgetPalette.gold)
+                stat("This month", WFmt.hm(monthTotal), color: WidgetPalette.goldDeep)
                 stat("Goal days", "\(goalDays)", color: WidgetPalette.gold)
                 Spacer(minLength: 0)
                 goalBar
@@ -104,7 +104,7 @@ struct HeatmapWidgetView: View {
             GeometryReader { g in
                 ZStack(alignment: .leading) {
                     Capsule().fill(.quaternary)
-                    Capsule().fill(p >= 1 ? AnyShapeStyle(WidgetPalette.gold) : AnyShapeStyle(Color.accentColor))
+                    Capsule().fill(p >= 1 ? AnyShapeStyle(WidgetPalette.gold) : AnyShapeStyle(WidgetPalette.gold.opacity(0.85)))
                         .frame(width: max(p > 0 ? 4 : 0, g.size.width * min(p, 1)))
                 }
             }
@@ -212,7 +212,7 @@ struct MonthGrid: View {
                 }
                 .overlay {
                     if isToday {
-                        RoundedRectangle(cornerRadius: corner, style: .continuous).strokeBorder(Color.accentColor, lineWidth: 1.5)
+                        RoundedRectangle(cornerRadius: corner, style: .continuous).strokeBorder(Color.primary, lineWidth: 1.5)
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)

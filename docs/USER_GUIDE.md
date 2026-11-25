@@ -21,7 +21,7 @@ statistics and widgets. Everything stays on your Mac.
 13. [Sleep, lock and idle time](#13-sleep-lock-and-idle-time)
 14. [Unfinished sessions](#14-unfinished-sessions)
 15. [Backup, export and import](#15-backup-export-and-import)
-16. [Language](#16-language)
+16. [Appearance and language](#16-appearance-and-language)
 17. [Keyboard shortcuts](#17-keyboard-shortcuts)
 18. [Where your data lives](#18-where-your-data-lives)
 19. [Troubleshooting](#19-troubleshooting)
@@ -68,7 +68,7 @@ The window has five pages in the sidebar:
 | **Projects** | Your project tree, topic details and notes |
 | **Statistics** | Charts, the monthly work calendar and the history of all entries |
 | **Completed** | A gallery of the projects you finished |
-| **Settings** | Language, daily goal, break plans, idle/sleep, shortcuts, backups |
+| **Settings** | Appearance, language, daily goal, break plans, idle/sleep, shortcuts, backups |
 
 Athlos also lives in the **menu bar**. Closing the window doesn't quit it; your timer keeps
 running. To quit, use **Athlos → Quit Athlos** (⌘Q) or **Quit** in the menu bar popover.
@@ -296,9 +296,16 @@ In **Settings → Backup**:
 - **Import…:** replaces all current data with a backup file. Athlos makes a safety backup of
   your current data first.
 
-## 16. Language
+## 16. Appearance and language
 
-Athlos is in English by default and includes Turkish. Choose **Settings → Language →
+**Appearance.** Athlos has two themes taken from its icon: **Light** (warm marble ivory with
+gold) and **Dark** (night charcoal with gold). Choose **Settings → Appearance → System / Light /
+Dark**; *System* follows your Mac. The change applies immediately to the main window, the menu
+bar popover, the desktop panel and alerts. The macOS widgets follow your Mac's appearance.
+
+![Timer in the dark theme](assets/screenshot-timer-dark.png)
+
+**Language.** Athlos is in English by default and includes Turkish. Choose **Settings → Language →
 English / Türkçe / System** (*System* follows your Mac's language) and click **Restart now**.
 A running timer is kept: after the restart choose **Continue**.
 

@@ -23,6 +23,23 @@ struct SettingsView: View {
         let s = model.store.settings
         Form {
             Section {
+                Picker("Appearance", selection: Binding(get: { s.appearance }, set: { v in
+                    model.store.updateSettings { $0.appearance = v }
+                    Theme.apply(v)
+                })) {
+                    ForEach(AppearanceMode.allCases, id: \.self) { m in
+                        Label(m.title, systemImage: m.symbol).tag(m)
+                    }
+                }
+                .pickerStyle(.segmented)
+            } header: {
+                Text("Appearance")
+            } footer: {
+                Text("Light is the marble theme, Dark the night theme. “System” follows your Mac.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+
+            Section {
                 Picker("Language", selection: $language) {
                     ForEach(AppLanguage.allCases) { Text(verbatim: $0.displayName).tag($0) }
                 }
@@ -124,8 +141,9 @@ struct SettingsView: View {
             }
         }
         .formStyle(.grouped)
+        .athlosPage()
         .navigationTitle("Settings")
-        .sheet(item: $planEditor) { req in PlanEditorView(request: req) }
+        .sheet(item: $planEditor) { req in PlanEditorView(request: req).athlosPage().tint(Theme.accent) }
         .alert("Restart Athlos to change the language", isPresented: $showRestart) {
             Button("Restart now") { AppLanguage.relaunch() }
             Button("Later", role: .cancel) {}
@@ -178,7 +196,7 @@ private struct PresetRow: View {
     var body: some View {
         HStack(spacing: 10) {
             Image(systemName: isActive ? "checkmark.circle.fill" : (preset.isCustom ? "slider.horizontal.3" : "circle"))
-                .foregroundStyle(isActive ? Color.accentColor : .secondary)
+                .foregroundStyle(isActive ? Theme.goldText : .secondary)
             VStack(alignment: .leading, spacing: 2) {
                 Text(preset.isCustom ? "Custom plan (no template)" : preset.name).fontWeight(isActive ? .semibold : .regular)
                 Text(preset.summary + " · " + (preset.blocks.count > 1 ? (preset.afterLast == .cycle ? String(localized: "cycles") : String(localized: "then last block")) : String(localized: "repeats")))

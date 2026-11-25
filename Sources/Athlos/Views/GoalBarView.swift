@@ -18,29 +18,30 @@ struct GoalBarView: View {
                 if !compact {
                     Label("Daily goal", systemImage: reached ? "checkmark.seal.fill" : "target")
                         .font(.headline)
-                        .foregroundStyle(reached ? Color.goalGold : .primary)
+                        .foregroundStyle(reached ? Theme.goldText : Theme.ink)
                 }
                 Text("\(Fmt.hm(work)) / \(Fmt.hm(goal))")
                     .font(compact ? .caption.weight(.medium) : .headline)
                     .monospacedDigit()
+                    .foregroundStyle(Theme.ink)
                     .contentTransition(.numericText())
                 Spacer()
                 Text(verbatim: progress.formatted(.percent.precision(.fractionLength(0)).locale(Fmt.numberLocale)))
                     .font(compact ? .caption2 : .subheadline)
                     .monospacedDigit()
-                    .foregroundStyle(reached ? Color.goalGold : .secondary)
+                    .foregroundStyle(reached ? Theme.goldText : Theme.inkSecondary)
             }
 
             GeometryReader { geo in
                 let w = geo.size.width
                 ZStack(alignment: .leading) {
-                    Capsule().fill(.quaternary)
+                    Capsule().fill(Theme.track)
                     if reached {
                         // Goal reached: the full bar is gold; the overflow is a bright stripe.
                         Capsule()
-                            .fill(LinearGradient(colors: [Color.goalGold, .orange], startPoint: .leading, endPoint: .trailing))
+                            .fill(LinearGradient(colors: [Theme.goldDeep, Theme.goldBright], startPoint: .leading, endPoint: .trailing))
                             .frame(width: w)
-                            .shadow(color: Color.goalGold.opacity(0.6), radius: 4)
+                            .shadow(color: Theme.goldBright.opacity(0.6), radius: 4)
                         let overflow = min(progress - 1, 1)
                         if overflow > 0 {
                             Capsule()
@@ -49,7 +50,7 @@ struct GoalBarView: View {
                         }
                     } else {
                         Capsule()
-                            .fill(LinearGradient(colors: [.accentColor.opacity(0.75), .accentColor], startPoint: .leading, endPoint: .trailing))
+                            .fill(Theme.goldGradient)
                             .frame(width: max(progress > 0 ? 6 : 0, w * progress))
                     }
                 }
@@ -58,9 +59,9 @@ struct GoalBarView: View {
             .frame(height: compact ? 6 : 14)
 
             if !compact, reached, progress > 1 {
-                Text("\(Fmt.hm(work - goal)) over your goal ✨")
+                Text("\(Fmt.hm(work - goal)) over your goal")
                     .font(.caption)
-                    .foregroundStyle(Color.goalGold)
+                    .foregroundStyle(Theme.goldText)
             }
         }
         .accessibilityElement(children: .ignore)

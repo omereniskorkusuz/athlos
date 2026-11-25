@@ -76,12 +76,13 @@ extension Color {
         return String(format: "#%02X%02X%02X", Int(ns.redComponent * 255), Int(ns.greenComponent * 255), Int(ns.blueComponent * 255))
     }
 
-    static let goalGold = Color(red: 0.98, green: 0.74, blue: 0.18)
+    /// Goal reached (the icon's gold).
+    static var goalGold: Color { Theme.gold }
 }
 
 /// Project color palette (close to Apple's system colors).
 enum Palette {
-    static let colors = ["#0A84FF", "#30D158", "#FF9F0A", "#FF453A", "#BF5AF2", "#64D2FF", "#FFD60A", "#FF375F", "#5E5CE6", "#AC8E68", "#8E8E93", "#32ADE6"]
+    static let colors = ["#C9A45C", "#5E8275", "#0A84FF", "#30D158", "#FF9F0A", "#FF453A", "#BF5AF2", "#64D2FF", "#FFD60A", "#FF375F", "#5E5CE6", "#AC8E68", "#8E8E93", "#32ADE6"]
 }
 
 extension Project {

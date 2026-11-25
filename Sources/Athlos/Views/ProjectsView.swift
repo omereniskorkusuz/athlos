@@ -68,16 +68,19 @@ struct ProjectTreeView: View {
             }
         }
         .listStyle(.sidebar)
+        .scrollContentBackground(.hidden)
+        .background(Theme.well)
         .safeAreaInset(edge: .bottom) {
             Text("Drag to reorder · Right-click › Move… to move elsewhere")
                 .font(.caption2)
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity)
                 .padding(6)
-                .background(.bar)
+                .background(Theme.well)
+                .overlay(alignment: .top) { Rectangle().fill(Theme.line).frame(height: 1) }
         }
-        .sheet(item: $renaming) { t in RenameSheet(topic: t) }
-        .sheet(item: $moving) { t in MoveTopicSheet(topic: t) }
+        .sheet(item: $renaming) { t in RenameSheet(topic: t).athlosPage().tint(Theme.accent) }
+        .sheet(item: $moving) { t in MoveTopicSheet(topic: t).athlosPage().tint(Theme.accent) }
         .confirmationDialog("Delete “\(deleting?.name ?? "")”?", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }), titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
                 if let d = deleting {
@@ -110,7 +113,7 @@ struct ProjectTreeView: View {
             Text(p.name).fontWeight(.semibold).lineLimit(1)
             Spacer()
             if model.store.runtime.projectID == p.id, model.store.runtime.topicID == nil, model.timer.phase == .working {
-                Image(systemName: "record.circle").foregroundStyle(.green).symbolEffect(.pulse)
+                Image(systemName: "record.circle").foregroundStyle(Theme.goldText).symbolEffect(.pulse)
             }
             Text(Fmt.hm(model.store.projectSeconds(p.id, now: model.now)))
                 .font(.caption.monospacedDigit())
@@ -163,12 +166,12 @@ struct TopicTreeRow: View {
     private var label: some View {
         HStack(spacing: 6) {
             Image(systemName: isActive ? "record.circle" : "number")
-                .foregroundStyle(isActive ? AnyShapeStyle(.green) : AnyShapeStyle(.tertiary))
+                .foregroundStyle(isActive ? AnyShapeStyle(Theme.goldText) : AnyShapeStyle(.tertiary))
                 .font(.caption)
             Text(topic.name).lineLimit(1)
             Spacer()
             if let t = today[topic.id], t >= 60 {
-                Text(Fmt.hm(t)).font(.caption2.monospacedDigit()).foregroundStyle(.green)
+                Text(Fmt.hm(t)).font(.caption2.monospacedDigit()).foregroundStyle(Theme.goldText)
                     .help("Today")
             }
             Text(Fmt.hm(totals[topic.id] ?? 0))
@@ -211,7 +214,7 @@ struct NewTopicSheet: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("New subtopic").font(.title2.bold())
+            Text("New subtopic").font(Theme.display(22))
             Text("Location: \(model.store.pathString(projectID: request.projectID, topicID: request.parentID))")
                 .foregroundStyle(.secondary)
             TextField("Topic name", text: $name)
@@ -250,7 +253,7 @@ struct RenameSheet: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Rename").font(.title2.bold())
+            Text("Rename").font(Theme.display(22))
             TextField("Topic name", text: $name).textFieldStyle(.roundedBorder).onSubmit(save)
             HStack {
                 Spacer()
@@ -280,7 +283,7 @@ struct MoveTopicSheet: View {
         let invalid = model.store.descendantIDs(of: topic.id).union([topic.id])
         let targets = model.store.flattenedTargets().filter { t in t.topicID.map { !invalid.contains($0) } ?? true }
         VStack(alignment: .leading, spacing: 12) {
-            Text("Move “\(topic.name)” where?").font(.title3.bold())
+            Text("Move “\(topic.name)” where?").font(Theme.heading)
             List(targets, selection: Binding(get: { target?.id }, set: { id in target = targets.first { $0.id == id } })) { t in
                 HStack {
                     if t.topicID == nil { Image(systemName: "folder").foregroundStyle(.secondary) }

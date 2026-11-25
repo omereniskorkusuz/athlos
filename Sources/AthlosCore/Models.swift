@@ -271,6 +271,13 @@ public enum SleepBehavior: String, Codable, Hashable, Sendable, CaseIterable {
     case keepRunning
 }
 
+/// Window appearance: follow macOS, or force the light (marble) / dark (night) theme.
+public enum AppearanceMode: String, Codable, Hashable, Sendable, CaseIterable {
+    case system
+    case light
+    case dark
+}
+
 public struct AppSettings: Codable, Hashable, Sendable {
     public var dailyGoalHours: Double = 6
     public var breaksEnabled: Bool = true
@@ -287,6 +294,7 @@ public struct AppSettings: Codable, Hashable, Sendable {
     public var notificationsEnabled: Bool = true
     public var askNoteOnStop: Bool = true
     public var hasSeenWelcome: Bool = false
+    public var appearance: AppearanceMode = .system
 
     public init() {
         activePresetID = presets.first(where: { $0.workMinutes == 50 })?.id
@@ -328,6 +336,7 @@ public struct AppSettings: Codable, Hashable, Sendable {
         notificationsEnabled = try c.decodeIfPresent(Bool.self, forKey: .notificationsEnabled) ?? notificationsEnabled
         askNoteOnStop = try c.decodeIfPresent(Bool.self, forKey: .askNoteOnStop) ?? askNoteOnStop
         hasSeenWelcome = try c.decodeIfPresent(Bool.self, forKey: .hasSeenWelcome) ?? hasSeenWelcome
+        appearance = (try? c.decodeIfPresent(AppearanceMode.self, forKey: .appearance)) ?? appearance
     }
 }
 

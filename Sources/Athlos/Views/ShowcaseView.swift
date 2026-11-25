@@ -24,7 +24,7 @@ struct ShowcaseView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         HStack(alignment: .firstTextBaseline) {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Completed Work").font(.largeTitle.bold())
+                                Text("Completed Work").font(Theme.display(32, weight: .bold))
                                 Text("\(completed.count) projects · \(Fmt.hoursCompact(totalSeconds))")
                                     .font(.title3)
                                     .foregroundStyle(.secondary)
@@ -57,7 +57,12 @@ struct ShowcaseView: View {
             }
             .help("Add a project you finished before, with its logo and time")
         }
-        .sheet(item: $selected) { p in ShowcaseDetailView(projectID: p.id) }
+        .onAppear {
+            if DemoData.showcaseDetail, selected == nil {
+                selected = model.store.projects(status: .completed).max { model.store.projectSeconds($0.id, now: Date()) < model.store.projectSeconds($1.id, now: Date()) }
+            }
+        }
+        .sheet(item: $selected) { p in ShowcaseDetailView(projectID: p.id).athlosPage().tint(Theme.accent) }
     }
 }
 
@@ -71,9 +76,9 @@ struct ShowcaseCard: View {
         VStack(spacing: 12) {
             ProjectIconView(project: project, size: 112, images: model.store.images)
                 .shadow(color: project.color.opacity(hovering ? 0.5 : 0.25), radius: hovering ? 16 : 8, y: 4)
-            Text(project.name).font(.title3.weight(.semibold)).lineLimit(1)
+            Text(project.name).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
             Text(Fmt.hoursCompact(seconds))
-                .font(.title2.weight(.bold))
+                .font(Theme.display(26, weight: .bold))
                 .monospacedDigit()
                 .foregroundStyle(project.color)
             if let done = project.completedAt {
@@ -82,7 +87,7 @@ struct ShowcaseCard: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .athlosCard(radius: 20)
         .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(project.color.opacity(hovering ? 0.6 : 0), lineWidth: 2))
         .scaleEffect(hovering ? 1.03 : 1)
         .animation(.spring(duration: 0.3), value: hovering)
@@ -120,20 +125,20 @@ struct ShowcaseDetailView: View {
                         HStack(spacing: 20) {
                             ProjectIconView(project: p, size: 120, images: store.images)
                             VStack(alignment: .leading, spacing: 6) {
-                                Text(p.name).font(.largeTitle.bold())
+                                Text(p.name).font(Theme.display(32, weight: .bold))
                                 Text(Fmt.hoursCompact(store.projectSeconds(p.id, now: now)))
-                                    .font(.title.weight(.semibold)).foregroundStyle(p.color)
+                                    .font(Theme.display(26)).foregroundStyle(p.color)
                                 Label("Finished", systemImage: "checkmark.seal.fill").foregroundStyle(Color.goalGold)
                             }
                         }
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: 10)], spacing: 10) {
-                            StatTile(title: "Started", value: Fmt.date(startDate), systemImage: "flag", tint: .green)
+                            StatTile(title: "Started", value: Fmt.date(startDate), systemImage: "flag", tint: Theme.gold)
                             StatTile(title: "End", value: Fmt.date(endDate), systemImage: "flag.checkered", tint: .goalGold)
-                            StatTile(title: "Total days", value: "\(days)", systemImage: "calendar", tint: .blue)
-                            StatTile(title: "Days worked", value: "\(activeDays)", systemImage: "calendar.badge.checkmark", tint: .purple)
+                            StatTile(title: "Total days", value: "\(days)", systemImage: "calendar", tint: Theme.goldDeep)
+                            StatTile(title: "Days worked", value: "\(activeDays)", systemImage: "calendar.badge.checkmark", tint: Theme.rest)
                         }
                         if !roots.isEmpty || untracked > 0 {
-                            Text("Time by subtopic").font(.title3.bold())
+                            Text("Time by subtopic").font(Theme.heading)
                             let items = roots.map { ($0.name, totals[$0.id] ?? 0) }.filter { $0.1 > 0 }
                                 + (untracked > 59 ? [(String(localized: "General / entered manually"), untracked)] : [])
                             Chart(items, id: \.0) { item in
@@ -149,7 +154,7 @@ struct ShowcaseDetailView: View {
                         }
                         let notes = store.notes(projectID: p.id, topicID: nil, includeDescendants: true)
                         if !notes.isEmpty {
-                            Text("Notes").font(.title3.bold())
+                            Text("Notes").font(Theme.heading)
                             ForEach(notes) { NoteRow(note: $0, showPath: $0.topicID != nil) }
                         }
                     }

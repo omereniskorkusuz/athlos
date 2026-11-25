@@ -81,12 +81,12 @@ struct HistoryView: View {
                     .width(min: 100, ideal: 120)
                     TableColumn("Duration") { e in
                         Text(Fmt.clock(e.duration(now: now))).monospacedDigit()
-                            .foregroundStyle(e.isRunning ? .green : .primary)
+                            .foregroundStyle(e.isRunning ? Theme.goldText : Theme.ink)
                     }
                     .width(min: 70, ideal: 80)
                     TableColumn("Type") { e in
                         Label(e.kind == .work ? "Work" : "Break", systemImage: e.kind == .work ? "hammer" : "cup.and.saucer")
-                            .foregroundStyle(e.kind == .work ? Color.primary : Color.orange)
+                            .foregroundStyle(e.kind == .work ? Theme.ink : Theme.rest)
                     }
                     .width(min: 80, ideal: 90)
                     TableColumn("Project › Topic") { e in
@@ -110,7 +110,7 @@ struct HistoryView: View {
                 .onDeleteCommand { confirmDelete = selection.filter { model.store.entry($0)?.isRunning == false } }
             }
         }
-        .sheet(item: $editing) { req in EntryEditorView(request: req) }
+        .sheet(item: $editing) { req in EntryEditorView(request: req).athlosPage().tint(Theme.accent) }
         .confirmationDialog("Delete \(confirmDelete.count) entries?", isPresented: Binding(get: { !confirmDelete.isEmpty }, set: { if !$0 { confirmDelete = [] } }), titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
                 for id in confirmDelete { model.store.deleteEntry(id) }
@@ -170,7 +170,7 @@ struct EntryEditorView: View {
                             Image(systemName: "exclamationmark.triangle.fill")
                         }
                         .font(.callout)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(Theme.rest)
                     }
                 }
             }

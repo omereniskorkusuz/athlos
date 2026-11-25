@@ -21,6 +21,7 @@ struct AthlosApp: App {
 
         MenuBarExtra {
             MenuBarView()
+                .tint(Theme.accent)
                 .environment(model)
                 .environment(\.locale, Fmt.locale)
         } label: {
@@ -33,6 +34,7 @@ struct AthlosApp: App {
 
         Settings {
             SettingsView()
+                .tint(Theme.accent)
                 .environment(model)
                 .environment(\.locale, Fmt.locale)
                 .frame(width: 560, height: 640)
@@ -56,6 +58,9 @@ struct MenuBarLabel: View {
                     .accessibilityLabel(Text("Athlos timer \(Fmt.spoken(model.displaySeconds))"))
             }
         }
+        // The menu bar label lives as long as the app: apply the saved appearance at launch and on every change
+        // (Settings, or a backup import).
+        .onChange(of: model.store.settings.appearance, initial: true) { _, mode in Theme.apply(mode) }
         .onAppear {
             if model.openMainWindow == nil {
                 model.openMainWindow = { [openWindow] in openWindow(id: "main") }

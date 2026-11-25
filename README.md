@@ -11,10 +11,10 @@
 </p>
 
 <p align="center">
-  <img alt="macOS 15+" src="https://img.shields.io/badge/macOS-15%2B-3cc6a6" />
-  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-native-3cc6a6" />
-  <img alt="Offline" src="https://img.shields.io/badge/data-100%25%20local-3cc6a6" />
-  <img alt="Languages" src="https://img.shields.io/badge/languages-English%20%C2%B7%20T%C3%BCrk%C3%A7e-3cc6a6" />
+  <img alt="macOS 15+" src="https://img.shields.io/badge/macOS-15%2B-C9A45C" />
+  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-native-C9A45C" />
+  <img alt="Offline" src="https://img.shields.io/badge/data-100%25%20local-C9A45C" />
+  <img alt="Languages" src="https://img.shields.io/badge/languages-English%20%C2%B7%20T%C3%BCrk%C3%A7e-C9A45C" />
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/screenshot-timer.png" width="900" alt="The Athlos timer: a running session on Server Storage › Disk setup › RAID setup, Pause / Break / Stop buttons, the active break plan, a quick note field and the daily goal bar at 82%" />
+  <img src="docs/assets/screenshot-timer.png" width="900" alt="The Athlos timer in the light marble theme: the topic RAID setup in a serif title, a large running clock, the break-plan progress line, Pause / Break / Stop buttons, the daily goal ring at 82% and a session notes card" />
 </p>
 
 ## Why Athlos
@@ -43,6 +43,18 @@ involved. Time is always computed from timestamps, so your hours stay correct wh
 sleeps, the app quits or something crashes.
 
 The interface is in English, with Turkish one click away in **Settings → Language**.
+
+### Light and dark
+
+The design comes from the app icon: warm marble ivory, a gold ring and a serif "A". Choose
+**Light** (marble), **Dark** (night) or **System** in **Settings → Appearance**; the change
+applies at once to the window, the menu bar popover and the desktop panel.
+
+<p align="center">
+  <img src="docs/assets/screenshot-timer-dark.png" width="440" alt="The timer in the dark night theme: gold Pause button and a gold daily goal ring on warm charcoal" />
+  &nbsp;
+  <img src="docs/assets/screenshot-stats-dark.png" width="440" alt="Statistics in the dark theme: summary tiles, a stacked chart in gold and sage, the monthly calendar and the work/break ring" />
+</p>
 
 ## Download and install
 
@@ -92,7 +104,7 @@ the fly without touching the template.
 ### Statistics and the work calendar
 
 <p align="center">
-  <img src="docs/assets/screenshot-calendar.png" width="900" alt="Statistics: a stacked bar chart per project for the last 14 days, a monthly calendar where each day is colored by the time worked and goal days are gold, and a work/break ratio ring" />
+  <img src="docs/assets/screenshot-calendar.png" width="900" alt="Statistics: the monthly calendar where each day is shaded gold by the time worked and goal days are the deepest gold, the work/break ratio ring and per-project totals" />
 </p>
 
 Daily, weekly and monthly charts per project, a monthly calendar where every day is colored by
@@ -171,6 +183,8 @@ optional in-app **desktop panel**.
 - **Everywhere on macOS:** main window, menu bar, global shortcut, macOS widgets, desktop
   panel.
 - **Languages:** English and Turkish.
+- **Appearance:** light (marble) and dark (night) themes taken from the app icon, or follow
+  the system.
 
 ## Your data
 

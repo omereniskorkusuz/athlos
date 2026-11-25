@@ -123,6 +123,20 @@ struct PlanTests {
         #expect(again.settings.activePreset.summary == "45/10")
     }
 
+    @Test func appearanceSettingDecodesAndRoundTrips() throws {
+        // Old data has no "appearance" key → follows the system.
+        let old = try AthlosJSON.decoder().decode(AppData.self, from: Data(#"{"settings":{"dailyGoalHours":5}}"#.utf8))
+        #expect(old.settings.appearance == .system)
+        #expect(old.settings.dailyGoalHours == 5)
+        // An unknown value (e.g. from a newer version) must not break loading.
+        let unknown = try AthlosJSON.decoder().decode(AppData.self, from: Data(#"{"settings":{"appearance":"sepia"}}"#.utf8))
+        #expect(unknown.settings.appearance == .system)
+        var d = old
+        d.settings.appearance = .dark
+        let again = try AthlosJSON.decoder().decode(AppData.self, from: AthlosJSON.encoder().encode(d))
+        #expect(again.settings.appearance == .dark)
+    }
+
     @Test func customPlanIsSelectable() {
         let f = makeFixture(blocks: [(50, 10)])
         var custom = f.store.settings.customPreset

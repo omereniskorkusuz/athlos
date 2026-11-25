@@ -64,7 +64,7 @@ extension WidgetSnapshot {
         s.phase = .working
         s.title = "RAID setup"
         s.path = "Server Storage › Disk setup › RAID setup"
-        s.colorHex = "#3D8BFF"
+        s.colorHex = "#C9A45C"
         s.sessionWork = 47 * 60
         s.blockLabel = "2 · 60/10"
         s.planName = "Daily flow"
@@ -77,17 +77,20 @@ extension WidgetSnapshot {
 // MARK: - Shared
 
 enum WidgetPalette {
-    static let gold = Color(red: 0.98, green: 0.74, blue: 0.18)
+    // Athlos icon colors (same as the app's Theme).
+    static let gold = Color(red: 0.831, green: 0.686, blue: 0.416)      // #D4AF6A
+    static let goldDeep = Color(red: 0.663, green: 0.498, blue: 0.235)  // #A97F3C
+    static let rest = Color(red: 0.42, green: 0.60, blue: 0.54)         // sage, breaks
 
     static func color(for seconds: TimeInterval, goal: TimeInterval) -> Color {
         guard seconds >= 60 else { return Color.secondary.opacity(0.18) }
         let ratio = seconds / max(goal, 1)
-        if ratio >= 1 { return gold }
-        return Color.green.opacity(0.35 + 0.6 * min(ratio, 1))
+        if ratio >= 1 { return goldDeep }
+        return gold.opacity(0.28 + 0.6 * min(ratio, 1))
     }
 
     static func hex(_ hex: String?) -> Color {
-        guard var s = hex?.trimmingCharacters(in: .whitespaces), !s.isEmpty else { return .accentColor }
+        guard var s = hex?.trimmingCharacters(in: .whitespaces), !s.isEmpty else { return gold }
         if s.hasPrefix("#") { s.removeFirst() }
         var v: UInt64 = 0
         Scanner(string: s).scanHexInt64(&v)

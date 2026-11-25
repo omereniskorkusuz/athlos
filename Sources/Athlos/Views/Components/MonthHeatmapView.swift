@@ -87,7 +87,7 @@ struct MonthHeatmapView: View {
             selected = (selected == day) ? nil : day
         } label: {
             RoundedRectangle(cornerRadius: compact ? 4 : 6, style: .continuous)
-                .fill(isFuture ? Color.secondary.opacity(0.06) : Self.color(for: seconds, goal: goal))
+                .fill(isFuture ? Theme.track.opacity(0.25) : Self.color(for: seconds, goal: goal))
                 .overlay {
                     // Only the day number in the widget; the large view also shows the time.
                     VStack(spacing: 0) {
@@ -103,7 +103,7 @@ struct MonthHeatmapView: View {
                 }
                 .overlay {
                     RoundedRectangle(cornerRadius: compact ? 4 : 6, style: .continuous)
-                        .strokeBorder(isToday ? Color.accentColor : Color.primary.opacity(isFocused ? 0.7 : 0),
+                        .strokeBorder(isToday ? Theme.ink : Theme.ink.opacity(isFocused ? 0.7 : 0),
                                       lineWidth: isToday ? 2 : 1.5)
                 }
                 .aspectRatio(1, contentMode: .fit)
@@ -154,10 +154,10 @@ struct MonthHeatmapView: View {
 
     /// 0 → gray; a little → light green (still visible); darker green toward the goal; goal → gold.
     static func color(for seconds: TimeInterval, goal: TimeInterval) -> Color {
-        guard seconds >= 60 else { return Color.secondary.opacity(0.15) }
+        guard seconds >= 60 else { return Theme.track.opacity(0.7) }
         let ratio = seconds / max(goal, 1)
-        if ratio >= 1 { return .goalGold }
-        return Color.green.opacity(0.35 + 0.6 * min(ratio, 1))
+        if ratio >= 1 { return Theme.goldDeep }
+        return Theme.gold.opacity(0.28 + 0.6 * min(ratio, 1))
     }
 
     private func daysInMonth(_ cal: Calendar) -> [Date] {
@@ -206,6 +206,6 @@ private struct DayBreakdown: View {
             }
         }
         .padding(8)
-        .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 8))
+        .background(Theme.well, in: RoundedRectangle(cornerRadius: 8))
     }
 }

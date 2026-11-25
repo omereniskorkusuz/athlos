@@ -79,7 +79,7 @@ struct PlanEditorView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(draft.isCustom ? "Custom plan (no template)" : isNew ? "New template" : "Edit template")
-                .font(.title2.bold())
+                .font(Theme.display(22))
             if draft.isCustom {
                 Text("Set up today's durations however you like; no need to save a template.")
                     .foregroundStyle(.secondary)
@@ -119,7 +119,7 @@ struct PlanEditorView: View {
             VStack(alignment: .leading, spacing: 3) {
                 ForEach(Array(schedule.enumerated()), id: \.offset) { _, item in
                     HStack(spacing: 8) {
-                        Circle().fill(item.isBreak ? Color.orange : Color.accentColor).frame(width: 7, height: 7)
+                        Circle().fill(item.isBreak ? Theme.rest : Theme.gold).frame(width: 7, height: 7)
                         Text("\(Fmt.time(item.start)) – \(Fmt.time(item.end))").monospacedDigit()
                         Text(item.isBreak ? "Break" : "Work (block \(item.block))")
                             .foregroundStyle(.secondary)
@@ -129,7 +129,7 @@ struct PlanEditorView: View {
             }
         }
         .padding(12)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 10))
+        .athlosCard(radius: 10)
     }
 
     private var schedule: [(start: Date, end: Date, isBreak: Bool, block: Int)] {
@@ -234,7 +234,7 @@ private struct BlockRow: View {
             Text("\(number)")
                 .font(.headline.monospacedDigit())
                 .frame(width: 26, height: 26)
-                .background(Color.accentColor.opacity(0.18), in: Circle())
+                .background(Theme.goldSoft, in: Circle())
             MinutesField(title: "Work", symbol: "hammer", value: $block.workMinutes, range: 1...600)
             Image(systemName: "arrow.right").foregroundStyle(.tertiary)
             MinutesField(title: "Break", symbol: "cup.and.saucer", value: $block.breakMinutes, range: 0...480)
@@ -252,7 +252,7 @@ private struct BlockRow: View {
             .accessibilityLabel(Text("Block \(number) options"))
         }
         .padding(10)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 10))
+        .athlosCard(radius: 10)
     }
 }
 
